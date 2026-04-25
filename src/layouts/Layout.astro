@@ -172,5 +172,18 @@ const structuredData = {
 
     <!-- Load full theme logic -->
     <script src="../scripts/theme.ts"></script>
+
+    <!-- 图片加载失败处理 -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        const images = document.querySelectorAll('img');
+        images.forEach(function(img) {
+          img.addEventListener('error', function() {
+            this.classList.add('img-error');
+            this.alt = this.alt || '图片加载失败';
+          });
+        });
+      });
+    </script>
   </body>
 </html>
