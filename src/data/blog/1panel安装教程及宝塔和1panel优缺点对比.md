@@ -32,7 +32,7 @@ Please change your password as soon as possible after logging in.
 
 接下来，我们就可以在浏览器中输入上面的地址，进入 1Panel 的登录界面。默认的用户名是 admin，密码是 123456，请在登录后及时修改密码。登录成功后，我们就可以看到 1Panel 的主界面，如下图所示：
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 我们可以看到，1Panel 有很多功能模块，包括系统信息、软件管理、文件管理、数据库管理、网站管理、计划任务、防火墙、日志审计等。我们可以通过点击左侧的菜单栏来切换不同的模块，并进行相应的操作。例如，我们可以在软件管理模块中安装或卸载一些常用的软件包，如 nginx、php、mysql 等；我们也可以在网站管理模块中创建或删除网站，并设置域名、SSL 证书、防盗链等；我们还可以在防火墙模块中设置端口开放或关闭，并查看实时流量监控等。
 

@@ -38,9 +38,9 @@ QtScrcpy 有以下几个特点，让它成为了手机投屏控制的神器：
 
 下面是 QtScrcpy 的部分截图：
 
-![QtScrcpy 主界面](https://blog.lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafybeihf5y3ky6zomsubllwgif24rpwjgigb42ck7qytrnwytuglz7mvhe&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![QtScrcpy 按键映射](https://blog.lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafybeicwectz2kzd5kn77mneh6k6hv3gtldaeer6kgsgchyd32s4m6faxq&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ### QtScrcpy 的使用方法
 

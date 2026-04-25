@@ -44,14 +44,14 @@ cloudflare 使用 html 页面跳转到目标网站
 首先注册个 cloudflare.com 账号，很简单的，支持中文，就是有些慢。
 登陆后找到 “Pages”,
 
-![@0NYTCUK1R](https://lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafkreigd3ksdmjjxcdwoiwntzarqrrlzylrtuka5pgnyexluoq3eljw7je&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 点击创建项目
 
-![0557VZZR30G8%LTM@(137](https://lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafkreihfyt3igzhgdalyemhp56vchq7vdiaugcenhdiaqznjdzchxg3rya&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 点击直接上传
 
-![SLE2IMP923JBPI5](https://lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafkreid5j3xbz6pbnbjaptivrv3fi3hx2dm4bt2gvxzwg5daehtoqnly44&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 起一个项目名称，然后上传 HTML 文件，就是创建一个 index.html 的文件并且压缩成 zip 格式，记得在这个文件里面，加入这段代码：
 

@@ -26,23 +26,23 @@ slug: netlify一键部署newbing-AI
 为什么不使用 vercel，因为 vercel 免费二级域名被污染，
 netlify 可以直接使用免费的二级域名访问
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ## 部署完毕使用 netlify 提供的二级域名**加 web**
 
 例子[https://bing.vcanbb.top/web/](https://bing.vcanbb.top/web/)
 netlify 和 Vercel 部署不支持 Websocket ，需选择 官方聊天服务器 或 Cloudflare
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 看见上边齿轮了么？点击它选择 **服务选择**
 
 ## 使用效果：
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ## 本项目开源地址
 

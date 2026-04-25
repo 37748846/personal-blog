@@ -19,9 +19,9 @@ slug: zeabur原生中文支持github登录
 * vercel 和 netlify 免费二级域名都被污染了
 * 都为英文使用相对麻烦
 * Zeabur 原生支持中文
-  ![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+  ![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ## 目录
 
