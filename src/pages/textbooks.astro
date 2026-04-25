@@ -2,229 +2,227 @@
 import Main from "@/layouts/Main.astro";
 ---
 
-<Main pageTitle="全学段教材下载" pageDesc="全学段教材下载，包括小学、初中、高中、大学教材">
+<Main pageTitle="小初高教材" pageDesc="提供小学、初中、高中各科教材PDF下载">
   <section class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12">
-    <h1 class="mb-8 text-4xl font-bold text-accent sm:text-5xl">全学段教材下载</h1>
+    <h1 class="mb-8 text-4xl font-bold text-accent sm:text-5xl">小初高教材</h1>
 
+    <p class="mb-8 text-lg text-skin-muted">
+      提供小学、初中、高中各科教材PDF下载
+    </p>
+
+    <!-- Quick Navigation -->
+    <div class="mb-8 rounded-lg border border-border bg-surface p-4">
+      <nav class="flex flex-wrap justify-center gap-4">
+        <a
+          href="#categories"
+          class="px-4 py-2 bg-muted text-foreground rounded-lg hover:bg-accent/10 transition-colors"
+        >
+          📚 教材分类
+        </a>
+        <a
+          href="#download"
+          class="px-4 py-2 bg-muted text-foreground rounded-lg hover:bg-accent/10 transition-colors"
+        >
+          ⬇️ 下载方式
+        </a>
+        <a
+          href="#notice"
+          class="px-4 py-2 bg-muted text-foreground rounded-lg hover:bg-accent/10 transition-colors"
+        >
+          ⚠️ 使用说明
+        </a>
+      </nav>
+    </div>
+
+    <!-- 数据来源 -->
     <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">项目介绍</h2>
-      <p class="mb-4 text-skin-muted">
-        虽然国内教育网站已提供免费资源，但大多数普通人获取信息的途径依然受限。有些人利用这一点，在某站上销售这些带有私人水印的资源。为了应对这种情况，这个项目将这些资源集中并开源，以促进义务教育的普及和消除地区间的教育贫困。
-      </p>
-      <p class="mb-4 text-skin-muted">
-        还有一个最重要的原因是，希望海外华人能够让自己的孩子继续了解国内教育。
+      <h2 class="mb-4 text-2xl font-bold text-accent">数据来源</h2>
+      <p class="mb-2 text-skin-muted">
+        <strong>GitHub 仓库：</strong>
+        <a
+          href="https://github.com/TapXWorld/ChinaTextbook"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-accent hover:underline"
+        >
+          ChinaTextbook
+        </a>
       </p>
       <p class="text-skin-muted">
-        希望未来出现更多不是为了考学而读书的人。
+        <strong>Star数：</strong> 70,236+ | <strong>Fork数：</strong> 15,704+
       </p>
     </div>
 
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">资源地址</h2>
-      <p class="text-skin-muted">
-        所有教材资源都可以在 <a href="https://github.com/TapXWorld/ChinaTextbook" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">ChinaTextbook</a> 项目中找到。
-      </p>
+    <!-- Categories -->
+    <div id="categories" class="mb-8 rounded-lg border border-border bg-surface p-6">
+      <h2 class="mb-4 text-2xl font-bold text-accent">教材分类</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-lg border border-border">
+          <div class="flex items-start mb-4">
+            <div class="text-4xl mr-4">📚</div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">小学教材</h3>
+              <p class="text-skin-muted">小学1-6年级各科教材</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">语文</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">数学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">英语</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">科学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">道德与法治</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-lg border border-border">
+          <div class="flex items-start mb-4">
+            <div class="text-4xl mr-4">📖</div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">初中教材</h3>
+              <p class="text-skin-muted">初中7-9年级各科教材</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">语文</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">数学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">英语</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">物理</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">化学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">生物</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">历史</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">地理</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">政治</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-lg border border-border">
+          <div class="flex items-start mb-4">
+            <div class="text-4xl mr-4">📕</div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">高中教材</h3>
+              <p class="text-skin-muted">高中10-12年级各科教材</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">语文</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">数学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">英语</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">物理</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">化学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">生物</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">历史</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">地理</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">政治</span>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-lg border border-border">
+          <div class="flex items-start mb-4">
+            <div class="text-4xl mr-4">🎓</div>
+            <div>
+              <h3 class="text-xl font-semibold mb-2">大学教材</h3>
+              <p class="text-skin-muted">大学各专业教材</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">计算机</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">数学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">物理</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">化学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">经济</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">管理</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">文学</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">法学</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">小学教材</h2>
-      <h3 class="mb-3 text-xl font-semibold">数学（人教版）</h3>
-      <ul class="space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学一年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">一年级上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学一年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">一年级下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学二年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">二年级上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学二年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">二年级下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学三年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">三年级上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学三年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">三年级下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学四年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">四年级上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学四年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">四年级下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学五年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">五年级上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学五年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">五年级下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学六年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">六年级上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/小学/数学/人教版/义务教育教科书·数学六年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">六年级下册</a>
-        </li>
+    <!-- Download Section -->
+    <div id="download" class="mb-8 rounded-lg border border-border bg-surface p-6">
+      <h2 class="mb-4 text-2xl font-bold text-accent">下载方式</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-lg border border-border">
+          <h3 class="text-xl font-semibold mb-4">方式1：GitHub 官方下载</h3>
+          <p class="text-skin-muted mb-4">
+            直接从 GitHub 仓库下载完整的教材文件
+          </p>
+          <a
+            href="https://github.com/TapXWorld/ChinaTextbook"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block px-6 py-3 bg-accent text-background rounded-lg hover:bg-accent/90 transition-colors"
+          >
+            访问 GitHub 仓库
+          </a>
+        </div>
+
+        <div class="p-6 rounded-lg border border-border">
+          <h3 class="text-xl font-semibold mb-4">方式2：国内加速下载 ⚡</h3>
+          <p class="text-skin-muted mb-4">
+            使用国内 GitHub 加速服务，下载速度更快
+          </p>
+          <div class="space-y-2">
+            <a
+              href="https://ghproxy.com/https://github.com/TapXWorld/ChinaTextbook"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full px-4 py-2 bg-accent text-background rounded-lg hover:bg-accent/90 transition-colors text-center"
+            >
+              ghproxy.com 加速
+            </a>
+            <a
+              href="https://ghps.cc/https://github.com/TapXWorld/ChinaTextbook"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full px-4 py-2 bg-accent text-background rounded-lg hover:bg-accent/90 transition-colors text-center"
+            >
+              ghps.cc 加速
+            </a>
+            <a
+              href="https://gitclone.com/github.com/TapXWorld/ChinaTextbook"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full px-4 py-2 bg-accent text-background rounded-lg hover:bg-accent/90 transition-colors text-center"
+            >
+              gitclone.com 加速
+            </a>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-lg border border-border">
+          <h3 class="text-xl font-semibold mb-4">方式3：Git 克隆</h3>
+          <p class="text-skin-muted mb-4">
+            使用 Git 命令克隆整个仓库到本地
+          </p>
+          <div class="space-y-2">
+            <div class="bg-muted p-4 rounded-lg text-sm">
+              <div class="mb-2 font-semibold">官方地址：</div>
+              <code class="text-accent">git clone https://github.com/TapXWorld/ChinaTextbook.git</code>
+            </div>
+            <div class="bg-muted p-4 rounded-lg text-sm">
+              <div class="mb-2 font-semibold">加速地址：</div>
+              <code class="text-accent">git clone https://ghproxy.com/https://github.com/TapXWorld/ChinaTextbook.git</code>
+            </div>
+            <div class="bg-muted p-4 rounded-lg text-sm">
+              <div class="mb-2 font-semibold">备用加速：</div>
+              <code class="text-accent">git clone https://ghps.cc/https://github.com/TapXWorld/ChinaTextbook.git</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notice -->
+    <div id="notice" class="rounded-lg border border-border bg-surface p-6">
+      <h2 class="mb-4 text-2xl font-bold text-accent">⚠️ 使用说明</h2>
+      <ul class="text-sm text-skin-muted space-y-2">
+        <li>• 教材文件仅供个人学习使用，请勿用于商业用途</li>
+        <li>• 仓库大小约 43.5GB，下载需要较长时间</li>
+        <li>• 建议使用 Git 克隆或下载 ZIP 压缩包</li>
+        <li>• 如遇到下载问题，请检查网络连接</li>
+        <li>• 教材内容来源于 ChinaTextbook 仓库，本站仅提供下载指引</li>
       </ul>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">初中教材</h2>
-      <h3 class="mb-3 text-xl font-semibold">数学（人教版）</h3>
-      <ul class="space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/初中/数学/人教版-人民教育出版社/七年级/义务教育教科书·数学七年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">初一上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/初中/数学/人教版-人民教育出版社/七年级/义务教育教科书·数学七年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">初一下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/初中/数学/人教版-人民教育出版社/八年级/义务教育教科书·数学八年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">初二上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/初中/数学/人教版-人民教育出版社/八年级/义务教育教科书·数学八年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">初二下册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/初中/数学/人教版-人民教育出版社/九年级/义务教育教科书·数学九年级上册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">初三上册</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/blob/master/初中/数学/人教版-人民教育出版社/九年级/义务教育教科书·数学九年级下册.pdf" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">初三下册</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">高中教材</h2>
-      <h3 class="mb-3 text-xl font-semibold">数学（人教版 A 版）</h3>
-      <ul class="space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/tree/master/高中/数学/人教版（A版）（主编：章建跃&李增涛）-人民教育出版社" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">高中数学目录</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">大学教材</h2>
-      <h3 class="mb-3 text-xl font-semibold">数学</h3>
-      <ul class="space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/tree/master/大学/高等数学/同济大学高等数学第七版" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">高等数学</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/tree/master/大学/线性代数" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">线性代数</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/tree/master/大学/离散数学" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">离散数学</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook/tree/master/大学/概率论" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">概率论</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="http://www.dxsx.net/index.php" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">更多数学资料</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">文件说明</h2>
-      <p class="mb-4 text-skin-muted">
-        由于 GitHub 对单个文件的上传有最大限制，超过 100MB 的文件会被拒绝上传，超过 50MB 的文件上传时会收到警告。因此，文件大小超过 50MB 的文件会被拆分成每个 35MB 的多个文件。
-      </p>
-      <h3 class="mb-3 text-xl font-semibold">文件合并</h3>
-      <p class="mb-4 text-skin-muted">
-        文件被拆分的示例：
-      </p>
-      <ul class="mb-4 space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <span>义务教育教科书 · 数学一年级上册.pdf.1</span>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <span>义务教育教科书 · 数学一年级上册.pdf.2</span>
-        </li>
-      </ul>
-      <p class="mb-4 text-skin-muted">
-        要合并这些被拆分的文件，您只需执行以下步骤：
-      </p>
-      <ol class="mb-4 list-decimal space-y-2 pl-6">
-        <li>将合并程序 mergePDFs-windows-amd64.exe 下载到包含 PDF 文件的文件夹中</li>
-        <li>确保 mergePDFs-windows-amd64.exe 和被拆分的 PDF 文件在同一目录下</li>
-        <li>双击 mergePDFs-windows-amd64.exe 程序即可自动完成文件合并</li>
-      </ol>
-      <p class="text-skin-muted">
-        您可以通过以下链接，下载文件合并程序：<a href="https://github.com/TapXWorld/ChinaTextbook-tools/releases" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">下载文件合并程序</a>
-      </p>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">下载建议</h2>
-      <ul class="space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <span>如果您位于内地，并且网络不错，想重新下载，您可以使用 <a href="https://github.com/happycola233/tchMaterial-parser" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">tchMaterial-parser</a> 项目（鼓励开源），进行重新下载</span>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <span>如果您位于国外，和内地网络通信速度较慢，建议使用本存储库进行签出</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">社区支持</h2>
-      <p class="mb-4 text-skin-muted">
-        如果这个项目帮助您免费获取教育资源，请考虑支持我们推广开放教育的努力！您的捐献将帮助我们维护和扩展这个资源库。
-      </p>
-      <p class="text-skin-muted">
-        加入我们的 Telegram 社区，获取最新动态并分享您的想法：<a href="https://t.me/+1V6WjEq8WEM4MDM1" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">https://t.me/+1V6WjEq8WEM4MDM1</a>
-      </p>
-    </div>
-
-    <div class="mb-8 rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">项目地址</h2>
-      <ul class="space-y-2">
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://github.com/TapXWorld/ChinaTextbook" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">GitHub 项目</a>
-        </li>
-        <li class="flex items-center">
-          <span class="mr-2 text-accent">•</span>
-          <a href="https://star-history.com/#TapXWorld/ChinaTextbook&Date" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Star History</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="rounded-lg border border-border bg-surface p-6">
-      <h2 class="mb-4 text-2xl font-bold text-accent">免费声明</h2>
-      <p class="text-skin-muted">
-        所有教材资源均为免费提供，请勿用于商业用途。如果您觉得这个项目对您有帮助，欢迎给项目点个 Star！
-      </p>
     </div>
   </section>
 </Main>
