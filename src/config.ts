@@ -3,7 +3,7 @@ export const SITE = {
 	author: "Mac",
 	profile: "https://lrbar.com/",
 	desc: "Mac的博客 - 技术分享、生活记录、工具开发",
-	title: "懒人吧-lrbar.com",
+	title: "懒人吧",
 	ogImage: "astropaper-og.jpg",
 	lightAndDarkMode: true,
 	postPerIndex: 4,
