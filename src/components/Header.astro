@@ -73,17 +73,27 @@ const isActive = (path: string) => {
       >
         <li class="col-span-2">
           <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-            Posts
+            文章
           </a>
         </li>
         <li class="col-span-2">
           <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-            Tags
+            标签
+          </a>
+        </li>
+        <li class="col-span-2">
+          <a href="/tools" class:list={{ "active-nav": isActive("/tools") }}>
+            免费工具
+          </a>
+        </li>
+        <li class="col-span-2">
+          <a href="/textbooks" class:list={{ "active-nav": isActive("/textbooks") }}>
+            教材下载
           </a>
         </li>
         <li class="col-span-2">
           <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
-            About
+            关于
           </a>
         </li>
         {

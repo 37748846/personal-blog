@@ -1,37 +1,48 @@
 ---
 layout: ../layouts/AboutLayout.astro
-title: "About"
+title: "关于"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+欢迎来到懒人吧！这里是 Mac 的个人博客。
 
-![Astro Paper](public/astropaper-og.jpg)
+## 关于我
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+昵称：Mac
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+性别：男
 
-## Features
+年龄：XX岁
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+地址：中国
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+网址：ncs.fun
 
-and so much more.
+兴趣是学习的动力，学习也能成为消遣！
 
-## Show your support
+高山仰止,景行行止。虽不能至,然心向往之。
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+## 关于博客
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
+这个博客使用 [Astro](https://astro.build/) 和 [Tailwind CSS](https://tailwindcss.com/) 构建，是一个简洁、可访问且对 SEO 友好的博客主题。
 
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
+## 特性
 
-Kyay zuu! 🙏🏼
+- SEO 友好
+- 快速性能
+- 亮色和暗色模式
+- 高度可定制
+- 可组织的博客文章
+- 响应式和可访问
+- 使用 [PageFind](https://pagefind.app/) 的静态搜索
+- 自动社交图片生成
+
+以及更多功能。
+
+## 联系方式
+
+如果你有任何问题或建议，欢迎通过以下方式联系我：
+
+- 网站：https://ncs.fun
+- 博客：https://lrbar.com
+
+感谢你的访问！🙏🏼
