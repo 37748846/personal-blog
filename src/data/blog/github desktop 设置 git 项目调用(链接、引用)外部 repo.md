@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-09
 title: "github desktop 设置 git 项目调用(链接、引用)外部 repo"
 featured: false

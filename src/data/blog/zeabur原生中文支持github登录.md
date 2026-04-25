@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-06-08
 title: "zeabur原生中文支持github登录"
 featured: false

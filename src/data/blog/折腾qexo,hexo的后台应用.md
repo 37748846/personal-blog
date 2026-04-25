@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-02
 title: "折腾Qexo,Hexo的后台应用"
 featured: false

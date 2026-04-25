@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-03
 title: "Vercel还是Github编辑次数或资源限制"
 featured: false

@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-05-26
 title: "使用cloudflare制作“镜像站”"
 featured: false

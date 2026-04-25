@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-05-03
 title: "xlog不支持多域名添加解决方法"
 featured: false

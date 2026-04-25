@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-09
 title: "Netlify更新submodule"
 featured: false

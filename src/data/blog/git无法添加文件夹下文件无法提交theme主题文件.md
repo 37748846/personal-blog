@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-25
 title: "git 无法添加文件夹下文件"
 featured: false

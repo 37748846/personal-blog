@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-25
 title: "最近在研究Qexo友链申请适配"
 featured: false

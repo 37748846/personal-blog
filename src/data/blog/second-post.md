@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2026-04-24
 title: "Astro 博客配置"
 featured: false

@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2026-04-24
 title: "第一篇博客"
 featured: false

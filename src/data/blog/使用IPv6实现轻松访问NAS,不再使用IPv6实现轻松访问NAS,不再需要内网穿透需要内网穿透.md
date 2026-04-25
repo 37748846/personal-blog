@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-06-16
 title: "使用IPv6实现轻松访问NAS,不再需要内网穿透"
 featured: false

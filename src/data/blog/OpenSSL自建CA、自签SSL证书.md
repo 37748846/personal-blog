@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-02
 title: "OpenSSL自建CA、自签SSL证书"
 featured: false

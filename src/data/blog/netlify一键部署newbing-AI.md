@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-06-01
 title: "netlify一键部署newbing-AI"
 featured: false

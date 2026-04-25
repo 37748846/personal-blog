@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-07
 title: "查看git的用户名和密码"
 featured: false

@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-06-12
 title: "1panel安装教程及宝塔和1panel优缺点对比"
 featured: false

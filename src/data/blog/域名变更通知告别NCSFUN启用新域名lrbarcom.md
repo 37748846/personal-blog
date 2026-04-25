@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2026-04-25
 title: "域名变更通知：告别NCS.FUN，启用新域名lrbar.com"
 featured: false

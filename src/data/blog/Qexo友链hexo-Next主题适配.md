@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-25
 title: "Qexo友链hexo-Next主题适配"
 featured: false

@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-06-04
 title: "QtScrcpy免费的手机投屏神器"
 featured: false

@@ -1,5 +1,5 @@
 ---
-author: 爪爪
+author: Mac
 pubDatetime: 2023-04-02
 title: "openssl生成自签名证书(完整版)"
 featured: false
