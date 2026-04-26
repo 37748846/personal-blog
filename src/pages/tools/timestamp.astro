@@ -1,0 +1,245 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="时间戳转换" description="在线时间戳和日期时间转换工具">
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <div class="mb-6">
+      <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      时间戳转换
+    </h1>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-6">
+      <p class="text-sm text-gray-700 dark:text-gray-300">
+        当前时间: <span id="current-time" class="font-semibold"></span>
+      </p>
+    </div>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-6">
+      {/* 时间戳转日期时间 */}
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+          时间戳 → 日期时间
+        </h3>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            时间戳（秒）
+          </label>
+          <div class="flex space-x-2">
+            <input
+              type="text"
+              id="timestamp-input"
+              placeholder="例如: 1713792000"
+              class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            />
+            <button
+              id="set-current-timestamp"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              当前
+            </button>
+          </div>
+        </div>
+        <button
+          id="timestamp-to-datetime"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          转换
+        </button>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            日期时间
+          </label>
+          <div class="flex space-x-2">
+            <input
+              type="text"
+              id="datetime-output"
+              readonly
+              class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none text-gray-900 dark:text-white"
+            />
+            <button
+              id="copy-datetime"
+              disabled
+              class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+              复制
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-gray-200 dark:border-gray-700" />
+
+      {/* 日期时间转时间戳 */}
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+          日期时间 → 时间戳
+        </h3>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            日期时间
+          </label>
+          <div class="flex space-x-2">
+            <input
+              type="text"
+              id="datetime-input"
+              placeholder="例如: 2024-04-22 12:00:00"
+              class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            />
+            <button
+              id="set-current-datetime"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              当前
+            </button>
+          </div>
+        </div>
+        <button
+          id="datetime-to-timestamp"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          转换
+        </button>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            时间戳（秒）
+          </label>
+          <div class="flex space-x-2">
+            <input
+              type="text"
+              id="timestamp-output"
+              readonly
+              class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none text-gray-900 dark:text-white"
+            />
+            <button
+              id="copy-timestamp"
+              disabled
+              class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+              复制
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
+      <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• 时间戳：从 1970-01-01 00:00:00 UTC 开始的秒数</li>
+        <li>• 支持秒级时间戳（10位数字）</li>
+        <li>• 日期时间格式：YYYY-MM-DD HH:mm:ss</li>
+        <li>• 所有处理在本地完成，数据不会上传到服务器</li>
+      </ul>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const currentTimeEl = document.getElementById('current-time') as HTMLElement;
+  const timestampInput = document.getElementById('timestamp-input') as HTMLInputElement;
+  const datetimeOutput = document.getElementById('datetime-output') as HTMLInputElement;
+  const datetimeInput = document.getElementById('datetime-input') as HTMLInputElement;
+  const timestampOutput = document.getElementById('timestamp-output') as HTMLInputElement;
+  const setCurrentTimestampBtn = document.getElementById('set-current-timestamp') as HTMLButtonElement;
+  const setCurrentDatetimeBtn = document.getElementById('set-current-datetime') as HTMLButtonElement;
+  const timestampToDatetimeBtn = document.getElementById('timestamp-to-datetime') as HTMLButtonElement;
+  const datetimeToTimestampBtn = document.getElementById('datetime-to-timestamp') as HTMLButtonElement;
+  const copyDatetimeBtn = document.getElementById('copy-datetime') as HTMLButtonElement;
+  const copyTimestampBtn = document.getElementById('copy-timestamp') as HTMLButtonElement;
+
+  // 更新当前时间
+  function updateCurrentTime() {
+    const now = new Date();
+    if (currentTimeEl) {
+      currentTimeEl.textContent = now.toLocaleString('zh-CN');
+    }
+  }
+
+  // 每秒更新一次
+  setInterval(updateCurrentTime, 1000);
+  updateCurrentTime();
+
+  // 时间戳转日期时间
+  function handleTimestampToDatetime() {
+    try {
+      const ts = parseInt(timestampInput?.value || '', 10);
+      if (isNaN(ts)) {
+        alert('请输入有效的时间戳');
+        return;
+      }
+
+      const date = new Date(ts * 1000);
+      if (datetimeOutput) {
+        datetimeOutput.value = date.toLocaleString('zh-CN');
+        copyDatetimeBtn.disabled = false;
+      }
+    } catch {
+      alert('转换失败');
+    }
+  }
+
+  // 日期时间转时间戳
+  function handleDatetimeToTimestamp() {
+    try {
+      const date = new Date(datetimeInput?.value || '');
+      if (isNaN(date.getTime())) {
+        alert('请输入有效的日期时间');
+        return;
+      }
+
+      const ts = Math.floor(date.getTime() / 1000);
+      if (timestampOutput) {
+        timestampOutput.value = ts.toString();
+        copyTimestampBtn.disabled = false;
+      }
+    } catch {
+      alert('转换失败');
+    }
+  }
+
+  // 设置当前时间戳
+  function handleSetCurrentTimestamp() {
+    const ts = Math.floor(Date.now() / 1000);
+    if (timestampInput) {
+      timestampInput.value = ts.toString();
+    }
+  }
+
+  // 设置当前日期时间
+  function handleSetCurrentDatetime() {
+    if (datetimeInput) {
+      datetimeInput.value = new Date().toLocaleString('zh-CN');
+    }
+  }
+
+  // 复制日期时间
+  function handleCopyDatetime() {
+    try {
+      navigator.clipboard.writeText(datetimeOutput?.value || '');
+      alert('已复制日期时间');
+    } catch {
+      alert('复制失败');
+    }
+  }
+
+  // 复制时间戳
+  function handleCopyTimestamp() {
+    try {
+      navigator.clipboard.writeText(timestampOutput?.value || '');
+      alert('已复制时间戳');
+    } catch {
+      alert('复制失败');
+    }
+  }
+
+  setCurrentTimestampBtn?.addEventListener('click', handleSetCurrentTimestamp);
+  setCurrentDatetimeBtn?.addEventListener('click', handleSetCurrentDatetime);
+  timestampToDatetimeBtn?.addEventListener('click', handleTimestampToDatetime);
+  datetimeToTimestampBtn?.addEventListener('click', handleDatetimeToTimestamp);
+  copyDatetimeBtn?.addEventListener('click', handleCopyDatetime);
+  copyTimestampBtn?.addEventListener('click', handleCopyTimestamp);
+</script>
