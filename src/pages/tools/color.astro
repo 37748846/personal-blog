@@ -1,0 +1,315 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="颜色转换" description="HEX、RGB、HSL 颜色格式转换工具">
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <div class="mb-6">
+      <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      颜色转换
+    </h1>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-6">
+      {/* 颜色预览 */}
+      <div class="flex items-center space-x-4">
+        <div
+          id="color-preview"
+          class="w-24 h-24 rounded-lg border-2 border-gray-300 dark:border-gray-600"
+          style="background-color: #000000"
+        />
+        <div class="flex-1 space-y-2">
+          <p class="text-sm text-gray-700 dark:text-gray-300">
+            <span class="font-semibold">HEX:</span> <span id="hex-display">#000000</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300">
+            <span class="font-semibold">RGB:</span> <span id="rgb-display">rgb(0, 0, 0)</span>
+          </p>
+          <p class="text-sm text-gray-700 dark:text-gray-300">
+            <span class="font-semibold">HSL:</span> <span id="hsl-display">hsl(0, 0%, 0%)</span>
+          </p>
+        </div>
+      </div>
+
+      {/* HEX 输入 */}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          HEX
+        </label>
+        <div class="flex space-x-2">
+          <input
+            type="text"
+            id="hex-input"
+            value="#000000"
+            placeholder="#000000"
+            class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          />
+          <button
+            id="copy-hex"
+            class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          >
+            复制
+          </button>
+        </div>
+      </div>
+
+      {/* RGB 输入 */}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          RGB
+        </label>
+        <div class="flex space-x-2">
+          <input
+            type="text"
+            id="rgb-input"
+            value="rgb(0, 0, 0)"
+            placeholder="rgb(0, 0, 0)"
+            class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          />
+          <button
+            id="copy-rgb"
+            class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          >
+            复制
+          </button>
+        </div>
+      </div>
+
+      {/* HSL 输入 */}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          HSL
+        </label>
+        <div class="flex space-x-2">
+          <input
+            type="text"
+            id="hsl-input"
+            value="hsl(0, 0%, 0%)"
+            placeholder="hsl(0, 0%, 0%)"
+            class="flex-1 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          />
+          <button
+            id="copy-hsl"
+            class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          >
+            复制
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
+      <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• HEX：十六进制颜色格式，例如 #FF0000</li>
+        <li>• RGB：红绿蓝颜色格式，例如 rgb(255, 0, 0)</li>
+        <li>• HSL：色相饱和度亮度格式，例如 hsl(0, 100%, 50%)</li>
+        <li>• 输入任意一种格式，自动转换为其他格式</li>
+        <li>• 所有处理在本地完成，数据不会上传到服务器</li>
+      </ul>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const hexInput = document.getElementById('hex-input') as HTMLInputElement;
+  const rgbInput = document.getElementById('rgb-input') as HTMLInputElement;
+  const hslInput = document.getElementById('hsl-input') as HTMLInputElement;
+  const colorPreview = document.getElementById('color-preview') as HTMLDivElement;
+  const hexDisplay = document.getElementById('hex-display') as HTMLElement;
+  const rgbDisplay = document.getElementById('rgb-display') as HTMLElement;
+  const hslDisplay = document.getElementById('hsl-display') as HTMLElement;
+  const copyHexBtn = document.getElementById('copy-hex') as HTMLButtonElement;
+  const copyRgbBtn = document.getElementById('copy-rgb') as HTMLButtonElement;
+  const copyHslBtn = document.getElementById('copy-hsl') as HTMLButtonElement;
+
+  function hexToRgb(hex: string) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16),
+        }
+      : null;
+  }
+
+  function rgbToHex(r: number, g: number, b: number) {
+    return "#" + [r, g, b].map((x) => {
+      const hex = x.toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    }).join("");
+  }
+
+  function rgbToHsl(r: number, g: number, b: number) {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h = 0;
+    let s = 0;
+    const l = (max + min) / 2;
+
+    if (max !== min) {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+
+      switch (max) {
+        case r:
+          h = ((g - b) / d + (g < b ? 6 : 0)) / 6;
+          break;
+        case g:
+          h = ((b - r) / d + 2) / 6;
+          break;
+        case b:
+          h = ((r - g) / d + 4) / 6;
+          break;
+      }
+    }
+
+    return {
+      h: Math.round(h * 360),
+      s: Math.round(s * 100),
+      l: Math.round(l * 100),
+    };
+  }
+
+  function hslToRgb(h: number, s: number, l: number) {
+    s /= 100;
+    l /= 100;
+
+    const c = (1 - Math.abs(2 * l - 1)) * s;
+    const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+    const m = l - c / 2;
+
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    if (0 <= h && h < 60) {
+      r = c;
+      g = x;
+      b = 0;
+    } else if (60 <= h && h < 120) {
+      r = x;
+      g = c;
+      b = 0;
+    } else if (120 <= h && h < 180) {
+      r = 0;
+      g = c;
+      b = x;
+    } else if (180 <= h && h < 240) {
+      r = 0;
+      g = x;
+      b = c;
+    } else if (240 <= h && h < 300) {
+      r = x;
+      g = 0;
+      b = c;
+    } else if (300 <= h && h < 360) {
+      r = c;
+      g = 0;
+      b = x;
+    }
+
+    return {
+      r: Math.round((r + m) * 255),
+      g: Math.round((g + m) * 255),
+      b: Math.round((b + m) * 255),
+    };
+  }
+
+  function updateColorFromHex(hex: string) {
+    const rgb = hexToRgb(hex);
+    if (rgb) {
+      const rgbStr = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+      const hslStr = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+      if (rgbInput) rgbInput.value = rgbStr;
+      if (hslInput) hslInput.value = hslStr;
+      if (colorPreview) colorPreview.style.backgroundColor = hex;
+      if (hexDisplay) hexDisplay.textContent = hex;
+      if (rgbDisplay) rgbDisplay.textContent = rgbStr;
+      if (hslDisplay) hslDisplay.textContent = hslStr;
+    }
+  }
+
+  function updateColorFromRgb(rgb: string) {
+    const match = rgb.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+    if (match) {
+      const r = parseInt(match[1], 10);
+      const g = parseInt(match[2], 10);
+      const b = parseInt(match[3], 10);
+      const hex = rgbToHex(r, g, b);
+      const hsl = rgbToHsl(r, g, b);
+      const hslStr = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+
+      if (hexInput) hexInput.value = hex;
+      if (hslInput) hslInput.value = hslStr;
+      if (colorPreview) colorPreview.style.backgroundColor = hex;
+      if (hexDisplay) hexDisplay.textContent = hex;
+      if (rgbDisplay) rgbDisplay.textContent = rgb;
+      if (hslDisplay) hslDisplay.textContent = hslStr;
+    }
+  }
+
+  function updateColorFromHsl(hsl: string) {
+    const match = hsl.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/);
+    if (match) {
+      const h = parseInt(match[1], 10);
+      const s = parseInt(match[2], 10);
+      const l = parseInt(match[3], 10);
+      const rgb = hslToRgb(h, s, l);
+      const rgbStr = `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+      const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
+
+      if (hexInput) hexInput.value = hex;
+      if (rgbInput) rgbInput.value = rgbStr;
+      if (colorPreview) colorPreview.style.backgroundColor = hex;
+      if (hexDisplay) hexDisplay.textContent = hex;
+      if (rgbDisplay) rgbDisplay.textContent = rgbStr;
+      if (hslDisplay) hslDisplay.textContent = hsl;
+    }
+  }
+
+  function handleCopy(text: string) {
+    try {
+      navigator.clipboard.writeText(text);
+      alert('已复制到剪贴板');
+    } catch (error) {
+      alert('复制失败');
+    }
+  }
+
+  hexInput?.addEventListener('input', (e) => {
+    const value = (e.target as HTMLInputElement).value;
+    updateColorFromHex(value);
+  });
+
+  rgbInput?.addEventListener('input', (e) => {
+    const value = (e.target as HTMLInputElement).value;
+    updateColorFromRgb(value);
+  });
+
+  hslInput?.addEventListener('input', (e) => {
+    const value = (e.target as HTMLInputElement).value;
+    updateColorFromHsl(value);
+  });
+
+  copyHexBtn?.addEventListener('click', () => {
+    handleCopy(hexInput?.value || '');
+  });
+
+  copyRgbBtn?.addEventListener('click', () => {
+    handleCopy(rgbInput?.value || '');
+  });
+
+  copyHslBtn?.addEventListener('click', () => {
+    handleCopy(hslInput?.value || '');
+  });
+</script>
