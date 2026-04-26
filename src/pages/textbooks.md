@@ -3,7 +3,6 @@ layout: ../layouts/AboutLayout.astro
 title: "小初高大学官方教材"
 ---
 
-
 ## 数据来源
 
 **GitHub 仓库：** [ChinaTextbook](https://github.com/TapXWorld/ChinaTextbook)
@@ -12,6 +11,7 @@ title: "小初高大学官方教材"
 
 ## 教材分类
 
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
 
 ### 小学教材📚
 
@@ -19,13 +19,11 @@ title: "小初高大学官方教材"
 
 语文 数学 英语 科学 道德与法治
 
-
 ### 初中教材📖
 
 初中7-9年级各科教材
 
 语文 数学 英语 物理 化学 生物 历史 地理 政治
-
 
 ### 高中教材📕
 
@@ -33,12 +31,13 @@ title: "小初高大学官方教材"
 
 语文 数学 英语 物理 化学 生物 历史 地理 政治
 
-
 ### 大学教材🎓
 
 大学各专业教材
 
 计算机 数学 物理 化学 经济 管理 文学 法学
+
+</div>
 
 ## 下载方式
 
@@ -52,23 +51,37 @@ title: "小初高大学官方教材"
 
 使用国内 GitHub 加速服务，下载速度更快
 
-[ghproxy.com 加速](https://ghproxy.com/https://github.com/TapXWorld/ChinaTextbook) [ghps.cc 加速](https://ghps.cc/https://github.com/TapXWorld/ChinaTextbook) [gitclone.com 加速](https://gitclone.com/github.com/TapXWorld/ChinaTextbook)
+<div class="flex flex-wrap gap-4 my-4">
+
+[ghproxy.com 加速](https://ghproxy.com/https://github.com/TapXWorld/ChinaTextbook)
+
+[ghps.cc 加速](https://ghps.cc/https://github.com/TapXWorld/ChinaTextbook)
+
+[gitclone.com 加速](https://gitclone.com/github.com/TapXWorld/ChinaTextbook)
+
+</div>
 
 ### 方式3：Git 克隆
 
 使用 Git 命令克隆整个仓库到本地
 
-官方地址：
+**官方地址：**
 
-`git clone https://github.com/TapXWorld/ChinaTextbook.git`
+```bash
+git clone https://github.com/TapXWorld/ChinaTextbook.git
+```
 
-加速地址：
+**加速地址：**
 
-`git clone https://ghproxy.com/https://github.com/TapXWorld/ChinaTextbook.git`
+```bash
+git clone https://ghproxy.com/https://github.com/TapXWorld/ChinaTextbook.git
+```
 
-备用加速：
+**备用加速：**
 
-`git clone https://ghps.cc/https://github.com/TapXWorld/ChinaTextbook.git`
+```bash
+git clone https://ghps.cc/https://github.com/TapXWorld/ChinaTextbook.git
+```
 
 ## ⚠️ 使用说明
 
