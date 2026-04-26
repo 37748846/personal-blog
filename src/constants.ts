@@ -7,6 +7,10 @@ import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconWechat from "@/assets/icons/IconWechat.svg";
+import IconWeibo from "@/assets/icons/IconWeibo.svg";
+import IconQQ from "@/assets/icons/IconQQ.svg";
+import IconQzone from "@/assets/icons/IconQzone.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -44,6 +48,30 @@ export const SOCIALS: Social[] = [
 ] as const;
 
 export const SHARE_LINKS: Social[] = [
+  {
+    name: "WeChat",
+    href: "weixin://",
+    linkTitle: `Share this post via WeChat`,
+    icon: IconWechat,
+  },
+  {
+    name: "Weibo",
+    href: "https://service.weibo.com/share/share.php?url=",
+    linkTitle: `Share this post on Weibo`,
+    icon: IconWeibo,
+  },
+  {
+    name: "QQ",
+    href: "https://connect.qq.com/widget/shareqq/index.html?url=",
+    linkTitle: `Share this post via QQ`,
+    icon: IconQQ,
+  },
+  {
+    name: "Qzone",
+    href: "https://sns.qzone.qq.com/cgi-bin/qzshare/share_qzshare?url=",
+    linkTitle: `Share this post on Qzone`,
+    icon: IconQzone,
+  },
   // {
   //   name: "WhatsApp",
   //   href: "https://wa.me/?text=",
