@@ -1,7 +1,18 @@
 ---
-layout: ../layouts/AboutLayout.astro
-title: "在线工具"
+import { getCollection } from "astro:content";
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Tag from "@/components/Tag.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import getUniqueTags from "@/utils/getUniqueTags";
+import { SITE } from "@/config";
+
+const posts = await getCollection("blog");
+
+let tags = getUniqueTags(posts);
 ---
+
 
 <Layout title="在线工具" description="提供图片处理、编码转换、格式化等免费在线工具">
   <main class="max-w-6xl mx-auto px-4 py-8">
