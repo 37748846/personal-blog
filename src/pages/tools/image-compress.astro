@@ -12,25 +12,115 @@ import Layout from "@/layouts/Layout.astro";
       图片压缩
     </h1>
 
-    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
-      <div class="text-center py-12">
-        <div class="text-6xl mb-4">🖼️</div>
-        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-          功能开发中
-        </h2>
-        <p class="text-gray-600 dark:text-gray-400 mb-4">
-          图片压缩功能正在开发中，敬请期待
-        </p>
-        <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 text-left">
-          <h3 class="font-semibold text-gray-900 dark:text-white mb-2">计划功能</h3>
-          <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
-            <li>• 支持 JPG、PNG、WebP 格式</li>
-            <li>• 自定义压缩质量</li>
-            <li>• 实时预览压缩效果</li>
-            <li>• 对比原图和压缩后图片</li>
-            <li>• 批量压缩支持</li>
-          </ul>
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-6">
+      {/* 上传区域 */}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          选择图片
+        </label>
+        <div
+          id="drop-zone"
+          class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-blue-500 transition-colors"
+        >
+          <div class="text-4xl mb-2">📁</div>
+          <p class="text-gray-600 dark:text-gray-400 mb-2">
+            拖拽图片到此处或点击上传
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-500">
+            支持 JPG、PNG、WebP 格式
+          </p>
+          <input
+            type="file"
+            id="file-input"
+            accept="image/jpeg,image/png,image/webp"
+            class="hidden"
+          />
         </div>
+      </div>
+
+      {/* 压缩设置 */}
+      <div id="settings" class="hidden space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            压缩质量: <span id="quality-value">80</span>%
+          </label>
+          <input
+            type="range"
+            id="quality-slider"
+            min="10"
+            max="100"
+            value="80"
+            class="w-full"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            最大宽度 (px)
+          </label>
+          <input
+            type="number"
+            id="max-width"
+            placeholder="例如: 1920"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            最大高度 (px)
+          </label>
+          <input
+            type="number"
+            id="max-height"
+            placeholder="例如: 1080"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          />
+        </div>
+
+        <button
+          id="compress-btn"
+          class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          压缩图片
+        </button>
+      </div>
+
+      {/* 预览区域 */}
+      <div id="preview" class="hidden space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">原图</h3>
+            <img
+              id="original-preview"
+              class="w-full rounded-lg border border-gray-300 dark:border-gray-600"
+              alt="原图"
+            />
+            <p id="original-size" class="text-sm text-gray-600 dark:text-gray-400 mt-2"></p>
+          </div>
+          <div>
+            <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">压缩后</h3>
+            <img
+              id="compressed-preview"
+              class="w-full rounded-lg border border-gray-300 dark:border-gray-600"
+              alt="压缩后"
+            />
+            <p id="compressed-size" class="text-sm text-gray-600 dark:text-gray-400 mt-2"></p>
+          </div>
+        </div>
+
+        <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
+          <p class="text-sm text-green-800 dark:text-green-300">
+            压缩率: <span id="compression-ratio">0</span>%
+          </p>
+        </div>
+
+        <button
+          id="download-btn"
+          class="w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        >
+          下载压缩后的图片
+        </button>
       </div>
     </div>
 
@@ -38,11 +128,185 @@ import Layout from "@/layouts/Layout.astro";
       <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
       <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
         <li>• 上传图片文件进行压缩</li>
-        <li>• 调整压缩质量参数</li>
-        <li>• 预览压缩效果</li>
+        <li>• 调整压缩质量参数（10-100%）</li>
+        <li>• 设置最大宽度和高度限制</li>
+        <li>• 预览压缩效果和文件大小</li>
         <li>• 下载压缩后的图片</li>
         <li>• 所有处理在本地完成，数据不会上传到服务器</li>
       </ul>
     </div>
   </main>
 </Layout>
+
+<script>
+  const dropZone = document.getElementById('drop-zone') as HTMLDivElement;
+  const fileInput = document.getElementById('file-input') as HTMLInputElement;
+  const settingsDiv = document.getElementById('settings') as HTMLDivElement;
+  const previewDiv = document.getElementById('preview') as HTMLDivElement;
+  const qualitySlider = document.getElementById('quality-slider') as HTMLInputElement;
+  const qualityValue = document.getElementById('quality-value') as HTMLElement;
+  const maxWidthInput = document.getElementById('max-width') as HTMLInputElement;
+  const maxHeightInput = document.getElementById('max-height') as HTMLInputElement;
+  const compressBtn = document.getElementById('compress-btn') as HTMLButtonElement;
+  const downloadBtn = document.getElementById('download-btn') as HTMLButtonElement;
+  const originalPreview = document.getElementById('original-preview') as HTMLImageElement;
+  const compressedPreview = document.getElementById('compressed-preview') as HTMLImageElement;
+  const originalSize = document.getElementById('original-size') as HTMLElement;
+  const compressedSize = document.getElementById('compressed-size') as HTMLElement;
+  const compressionRatio = document.getElementById('compression-ratio') as HTMLElement;
+
+  let originalFile: File | null = null;
+  let compressedBlob: Blob | null = null;
+
+  // 拖拽上传
+  dropZone?.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('border-blue-500');
+  });
+
+  dropZone?.addEventListener('dragleave', () => {
+    dropZone.classList.remove('border-blue-500');
+  });
+
+  dropZone?.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('border-blue-500');
+    const files = e.dataTransfer?.files;
+    if (files && files.length > 0) {
+      handleFile(files[0]);
+    }
+  });
+
+  // 点击上传
+  dropZone?.addEventListener('click', () => {
+    fileInput?.click();
+  });
+
+  fileInput?.addEventListener('change', (e) => {
+    const files = (e.target as HTMLInputElement).files;
+    if (files && files.length > 0) {
+      handleFile(files[0]);
+    }
+  });
+
+  // 质量滑块
+  qualitySlider?.addEventListener('input', (e) => {
+    if (qualityValue) {
+      qualityValue.textContent = (e.target as HTMLInputElement).value;
+    }
+  });
+
+  function handleFile(file: File) {
+    if (!file.type.startsWith('image/')) {
+      alert('请选择图片文件');
+      return;
+    }
+
+    originalFile = file;
+
+    // 显示原图预览
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (originalPreview) {
+        originalPreview.src = e.target?.result as string;
+      }
+      if (originalSize) {
+        originalSize.textContent = `大小: ${formatFileSize(file.size)}`;
+      }
+    };
+    reader.readAsDataURL(file);
+
+    // 显示设置
+    settingsDiv?.classList.remove('hidden');
+    previewDiv?.classList.add('hidden');
+  }
+
+  function formatFileSize(bytes: number): string {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+  }
+
+  function compressImage() {
+    if (!originalFile) return;
+
+    const quality = parseInt(qualitySlider?.value || '80', 10) / 100;
+    const maxWidth = parseInt(maxWidthInput?.value || '0', 10);
+    const maxHeight = parseInt(maxHeightInput?.value || '0', 10);
+
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      img.src = e.target?.result as string;
+    };
+
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      if (!ctx) return;
+
+      // 计算新尺寸
+      let width = img.width;
+      let height = img.height;
+
+      if (maxWidth > 0 && width > maxWidth) {
+        height = (maxWidth / width) * height;
+        width = maxWidth;
+      }
+
+      if (maxHeight > 0 && height > maxHeight) {
+        width = (maxHeight / height) * width;
+        height = maxHeight;
+      }
+
+      canvas.width = width;
+      canvas.height = height;
+
+      // 绘制图片
+      ctx.drawImage(img, 0, 0, width, height);
+
+      // 压缩
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+
+        compressedBlob = blob;
+
+        // 显示压缩后预览
+        const url = URL.createObjectURL(blob);
+        if (compressedPreview) {
+          compressedPreview.src = url;
+        }
+        if (compressedSize) {
+          compressedSize.textContent = `大小: ${formatFileSize(blob.size)}`;
+        }
+
+        // 计算压缩率
+        const ratio = ((originalFile!.size - blob.size) / originalFile!.size * 100).toFixed(2);
+        if (compressionRatio) {
+          compressionRatio.textContent = ratio;
+        }
+
+        // 显示预览
+        previewDiv?.classList.remove('hidden');
+      }, originalFile?.type || 'image/jpeg', quality);
+    };
+
+    reader.readAsDataURL(originalFile);
+  }
+
+  function downloadImage() {
+    if (!compressedBlob || !originalFile) return;
+
+    const link = document.createElement('a');
+    link.download = `compressed_${originalFile.name}`;
+    link.href = URL.createObjectURL(compressedBlob);
+    link.click();
+  }
+
+  compressBtn?.addEventListener('click', compressImage);
+  downloadBtn?.addEventListener('click', downloadImage);
+</script>
