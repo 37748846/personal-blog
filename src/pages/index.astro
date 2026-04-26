@@ -77,6 +77,31 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       )
     }
 
+    <section id="tools" class="pt-12 pb-6 border-b border-border">
+      <h2 class="text-2xl font-semibold tracking-wide mb-6">在线工具</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <a href="/tools" class="block p-6 bg-card rounded-lg shadow hover:shadow-md transition-shadow border border-border">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🛠️</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold mb-1">工具集合</h3>
+              <p class="text-sm opacity-70 mb-2">图片处理、编码转换、格式化等免费在线工具</p>
+              <span class="inline-block px-2 py-1 text-xs font-medium bg-accent/10 text-accent rounded">10+ 工具</span>
+            </div>
+          </div>
+        </a>
+        <a href="/textbooks" class="block p-6 bg-card rounded-lg shadow hover:shadow-md transition-shadow border border-border">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">📚</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold mb-1">小初高教材</h3>              <p class="text-sm opacity-70 mb-2">小学、初中、高中各科教材PDF下载</p>
+              <span class="inline-block px-2 py-1 text-xs font-medium bg-accent/10 text-accent rounded">70k+ Star</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
     {
       recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">

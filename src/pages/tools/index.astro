@@ -1,0 +1,336 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="在线工具" description="提供图片处理、编码转换、格式化等免费在线工具">
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        在线工具
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        提供图片处理、编码转换、格式化等免费在线工具
+      </p>
+    </div>
+
+    <!-- AI 工具部分 -->
+    <div class="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900 dark:to-blue-900 rounded-lg p-6 mb-8">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+        <span class="mr-2">🤖</span>
+        免费AI工具
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a
+          href="https://chat.openai.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-start space-x-3">
+            <div class="text-3xl">🤖</div>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                ChatGPT
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                OpenAI 的 AI 聊天助手
+              </p>
+              <span class="inline-block px-2 py-0.5 text-xs font-medium text-purple-800 dark:text-purple-200 bg-purple-100 dark:bg-purple-900 rounded">
+                AI 聊天
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://claude.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-start space-x-3">
+            <div class="text-3xl">🧠</div>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                Claude
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                Anthropic 的 AI 助手
+              </p>
+              <span class="inline-block px-2 py-0.5 text-xs font-medium text-purple-800 dark:text-purple-200 bg-purple-100 dark:bg-purple-900 rounded">
+                AI 聊天
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://gemini.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-start space-x-3">
+            <div class="text-3xl">✨</div>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                Gemini
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                Google 的 AI 助手
+              </p>
+              <span class="inline-block px-2 py-0.5 text-xs font-medium text-purple-800 dark:text-purple-200 bg-purple-100 dark:bg-purple-900 rounded">
+                AI 聊天
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://www.deepseek.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-start space-x-3">
+            <div class="text-3xl">🔎</div>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                DeepSeek
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                国产 AI 搜索引擎
+              </p>
+              <span class="inline-block px-2 py-0.5 text-xs font-medium text-purple-800 dark:text-purple-200 bg-purple-100 dark:bg-purple-900 rounded">
+                AI 搜索
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://www.perplexity.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-start space-x-3">
+            <div class="text-3xl">🔍</div>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                Perplexity
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                AI 驱动的搜索引擎
+              </p>
+              <span class="inline-block px-2 py-0.5 text-xs font-medium text-purple-800 dark:text-purple-200 bg-purple-100 dark:bg-purple-900 rounded">
+                AI 搜索
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://huggingface.co"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow"
+        >
+          <div class="flex items-start space-x-3">
+            <div class="text-3xl">🤗</div>
+            <div class="flex-1">
+              <h3 class="text-base font-semibold text-gray-900 dark:text-white mb-1">
+                Hugging Face
+              </h3>
+              <p class="text-xs text-gray-600 dark:text-gray-400 mb-1">
+                开源 AI 模型平台
+              </p>
+              <span class="inline-block px-2 py-0.5 text-xs font-medium text-purple-800 dark:text-purple-200 bg-purple-100 dark:bg-purple-900 rounded">
+                AI 模型
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 本地工具部分 -->
+    <div class="space-y-8">
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-700 pb-2">
+        本地工具
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="/tools/base64" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🔐</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                Base64 编码/解码
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线 Base64 编码和解码工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                编码转换
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/url" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🔗</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                URL 编码/解码
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线 URL 编码和解码工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                编码转换
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/json" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">📝</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                JSON 格式化
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线 JSON 格式化和验证工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                格式化
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/timestamp" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">⏰</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                时间戳转换
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线时间戳和日期时间转换工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                时间工具
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/color" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🎨</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                颜色转换
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                HEX、RGB、HSL 颜色格式转换
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                颜色工具
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/regex" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🔍</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                正则表达式测试
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线正则表达式测试工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                开发工具
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/qrcode" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">📱</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                二维码生成
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线生成二维码工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                生成工具
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/image-compress" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🖼️</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                图片压缩
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线图片压缩工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                图片工具
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/image-crop" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">✂️</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                图片裁剪
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                在线图片裁剪工具
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                图片工具
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="/tools/format-convert" class="block p-6 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow">
+          <div class="flex items-start space-x-4">
+            <div class="text-4xl">🔄</div>
+            <div class="flex-1">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">
+                格式转换
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                PNG、JPG、WebP 格式转换
+              </p>
+              <span class="inline-block px-2 py-1 text-xs font-medium text-blue-800 dark:text-blue-200 bg-blue-100 dark:bg-blue-900 rounded">
+                图片工具
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

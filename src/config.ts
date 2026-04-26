@@ -20,4 +20,5 @@ export const SITE = {
 	dir: "ltr", // "rtl" | "auto"
 	lang: "zh-CN", // html lang code. Set this empty and default will be "en"
 	timezone: "Asia/Shanghai", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+	showTools: true, // show tools in navigation
 } as const;
