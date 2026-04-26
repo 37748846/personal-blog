@@ -1,8 +1,11 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 ---
 
 <Layout title="二维码生成" description="在线生成二维码工具">
+  <Header />
   <main class="max-w-4xl mx-auto px-4 py-8">
     <div class="mb-6">
       <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
@@ -117,6 +120,7 @@ import Layout from "@/layouts/Layout.astro";
       </ul>
     </div>
   </main>
+  <Footer />
 </Layout>
 
 <script>

@@ -1,0 +1,234 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<Layout title="HTML 转 Markdown" description="在线 HTML 转 Markdown 工具">
+  <Header />
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <div class="mb-6">
+      <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      HTML 转 Markdown
+    </h1>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          HTML 输入
+        </label>
+        <textarea
+          id="html-input"
+          placeholder="输入 HTML 代码..."
+          class="w-full h-48 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white font-mono text-sm"
+        ></textarea>
+      </div>
+
+      <div class="flex space-x-2">
+        <button
+          id="convert-btn"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          转换为 Markdown
+        </button>
+        <button
+          id="clear-btn"
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+        >
+          清空
+        </button>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          Markdown 输出
+        </label>
+        <textarea
+          id="markdown-output"
+          readonly
+          class="w-full h-48 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none text-gray-900 dark:text-white font-mono text-sm"
+        ></textarea>
+      </div>
+
+      <div class="flex space-x-2">
+        <button
+          id="copy-btn"
+          disabled
+          class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+        >
+          复制 Markdown
+        </button>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          预览
+        </label>
+        <div
+          id="preview"
+          class="w-full min-h-32 p-4 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 prose dark:prose-invert max-w-none"
+        ></div>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
+      <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• 输入 HTML 代码</li>
+        <li>• 点击"转换为 Markdown"按钮</li>
+        <li>• 查看转换后的 Markdown 文本</li>
+        <li>• 预览渲染效果</li>
+        <li>• 复制 Markdown 文本到剪贴板</li>
+        <li>• 所有处理在本地完成，数据不会上传到服务器</li>
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const convertBtn = document.getElementById('convert-btn') as HTMLButtonElement;
+  const clearBtn = document.getElementById('clear-btn') as HTMLButtonElement;
+  const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement;
+  const htmlInput = document.getElementById('html-input') as HTMLTextAreaElement;
+  const markdownOutput = document.getElementById('markdown-output') as HTMLTextAreaElement;
+  const preview = document.getElementById('preview') as HTMLDivElement;
+
+  function htmlToMarkdown(html: string): string {
+    let markdown = html;
+
+    // 创建临时 DOM 元素来解析 HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+
+    // 递归处理节点
+    function processNode(node: Node): string {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return node.textContent || '';
+      }
+
+      if (node.nodeType !== Node.ELEMENT_NODE) {
+        return '';
+      }
+
+      const element = node as Element;
+      const tagName = element.tagName.toLowerCase();
+      let result = '';
+
+      // 处理子节点
+      const children = Array.from(element.childNodes).map(processNode).join('');
+
+      switch (tagName) {
+        case 'h1':
+          result = `# ${children}\n\n`;
+          break;
+        case 'h2':
+          result = `## ${children}\n\n`;
+          break;
+        case 'h3':
+          result = `### ${children}\n\n`;
+          break;
+        case 'h4':
+          result = `#### ${children}\n\n`;
+          break;
+        case 'h5':
+          result = `##### ${children}\n\n`;
+          break;
+        case 'h6':
+          result = `###### ${children}\n\n`;
+          break;
+        case 'strong':
+        case 'b':
+          result = `**${children}**`;
+          break;
+        case 'em':
+        case 'i':
+          result = `*${children}*`;
+          break;
+        case 'del':
+          result = `~~${children}~~`;
+          break;
+        case 'code':
+          result = `\`${children}\``;
+          break;
+        case 'pre':
+          result = `\`\`\`\n${children}\n\`\`\`\n\n`;
+          break;
+        case 'a':
+          const href = element.getAttribute('href') || '';
+          result = `[${children}](${href})`;
+          break;
+        case 'img':
+          const src = element.getAttribute('src') || '';
+          const alt = element.getAttribute('alt') || '';
+          result = `![${alt}](${src})`;
+          break;
+        case 'blockquote':
+          result = `> ${children.trim()}\n\n`;
+          break;
+        case 'hr':
+          result = '---\n\n';
+          break;
+        case 'ul':
+          result = `${children}\n`;
+          break;
+        case 'ol':
+          result = `${children}\n`;
+          break;
+        case 'li':
+          const parent = element.parentElement;
+          if (parent?.tagName.toLowerCase() === 'ol') {
+            const index = Array.from(parent.children).indexOf(element) + 1;
+            result = `${index}. ${children}\n`;
+          } else {
+            result = `- ${children}\n`;
+          }
+          break;
+        case 'p':
+          result = `${children}\n\n`;
+          break;
+        case 'br':
+          result = '\n';
+          break;
+        default:
+          result = children;
+      }
+
+      return result;
+    }
+
+    return Array.from(tempDiv.childNodes).map(processNode).join('');
+  }
+
+  function handleConvert() {
+    const html = htmlInput?.value || '';
+    const markdown = htmlToMarkdown(html);
+
+    if (markdownOutput) markdownOutput.value = markdown;
+    if (preview) preview.innerHTML = html;
+    if (copyBtn) copyBtn.disabled = false;
+  }
+
+  function handleClear() {
+    if (htmlInput) htmlInput.value = '';
+    if (markdownOutput) markdownOutput.value = '';
+    if (preview) preview.innerHTML = '';
+    if (copyBtn) copyBtn.disabled = true;
+  }
+
+  function handleCopy() {
+    try {
+      navigator.clipboard.writeText(markdownOutput?.value || '');
+      alert('已复制到剪贴板');
+    } catch (error) {
+      alert('复制失败');
+    }
+  }
+
+  convertBtn?.addEventListener('click', handleConvert);
+  clearBtn?.addEventListener('click', handleClear);
+  copyBtn?.addEventListener('click', handleCopy);
+</script>
