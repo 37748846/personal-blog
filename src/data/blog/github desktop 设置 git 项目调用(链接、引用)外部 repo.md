@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","SSL","安全","图片","博客","建站","教程","自动化"]
 author: Mac
 pubDatetime: 2023-04-09
 title: "github desktop 设置 git 项目调用(链接、引用)外部 repo"
 featured: false
 draft: false
-tags: ["others"]
 description: "0 前言 b站操作视频:https://www.bilibili.com/video/BV1YB4y1g7Jv/ 我们在用github时,常会用到别人的项目,但是每次直接克隆(拷贝)到自己的项目中,会..."
 slug: github desktop 设置 git 项目调用(链接、引用)外部 repo
 ---
-
-
 0 前言
 b 站操作视频:https://www.bilibili.com/video/BV1YB4y1g7Jv/
 

@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","部署","建站","前端","开发","SSL","安全","图片","博客","教程","域名","自动化"]
 author: Mac
 pubDatetime: 2023-06-01
 title: "netlify一键部署newbing-AI"
 featured: false
 draft: false
-tags: ["others"]
 description: "使用 netlify 一键部署 newbing-AI 点击一键部署 为什么不使用 vercel，因为 vercel 免费二级域名被污染， netlify 可以直接使用免费的二级域名访问 部署完毕使..."
 slug: netlify一键部署newbing-AI
 ---
-
-
 ## 目录
 
   - [使用 netlify 一键部署 newbing-AI](#使用netlify一键部署newbing-ai)

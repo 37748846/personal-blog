@@ -1,15 +1,13 @@
 ---
+tags: ["Git","部署","建站","前端","开发","SSL","安全","图片","设计","图标","Markdown","写作","博客","教程","自动化"]
 author: Mac
 pubDatetime: 2023-06-04
 title: "IconPark图标库-bingAI生产文章"
 featured: false
 draft: false
-tags: ["others"]
 description: "使用一键部署 newbing-AI建立自己的 bingai 以下为 bingAI 生产文章 你是否经常为了找到合适的图标而苦恼？你是否想要一套可以自由调整样式和颜色的图标库？你是否想要一套可以跨..."
 slug: IconPark图标库-bingAI生产文章
 ---
-
-
 > 使用[一键部署 newbing-AI](https://blog.lrbar.com/netlify-yi-jian-bu-shu-newbing-ai)建立自己的 bingai
 
 以下为 bingAI 生产文章

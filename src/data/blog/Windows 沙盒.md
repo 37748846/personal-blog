@@ -1,15 +1,13 @@
 ---
+tags: ["Linux","服务器","Docker","前端","开发","SSL","安全","网络","NAS","Markdown","写作","博客","建站","教程","测试","自动化"]
 author: Mac
 pubDatetime: 2023-05-14
 title: "Windows 沙盒"
 featured: false
 draft: false
-tags: ["others"]
 description: "Windows 沙盒提供了轻型桌面环境，可以安全地在隔离状态下运行应用程序。 安装在 Windows 沙盒环境下的软件保持“沙盒”状态，并且与主机分开运行。 沙盒是临时的。 关闭后，系统将删除所有软件..."
 slug: Windows 沙盒
 ---
-
-
 Windows 沙盒提供了轻型桌面环境，可以安全地在隔离状态下运行应用程序。 安装在 Windows 沙盒环境下的软件保持“沙盒”状态，并且与主机分开运行。
 
 沙盒是临时的。 关闭后，系统将删除所有软件和文件以及状态。 每次打开应用程序时，都会获得沙盒的全新实例。 但是，请注意，从 [Windows 11 内部版本 22509](https://blogs.windows.com/windows-insider/2021/12/01/announcing-windows-11-insider-preview-build-22509/) 起，将通过从虚拟化环境内部启动的重启来保留数据，这对于安装需要重新启动操作系统的应用程序非常有用。

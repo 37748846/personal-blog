@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","前端","开发","SSL","安全","博客","建站","教程","自动化"]
 author: Mac
 pubDatetime: 2023-04-03
 title: "即时通讯聊天系统-Gitter"
 featured: false
 draft: false
-tags: ["others"]
 description: "Gitter Gitter是GitHub存储库的开发人员和用户的 即时通讯聊天室系统。 Gitter 作为软件即服务提供商,提供包括免费选项和所有基本功能,以及创建单个私人聊天室的能力,和个人和组织的..."
 slug: 即时通讯聊天系统-Gitter
 ---
-
-
 # Gitter
 
 ```bash

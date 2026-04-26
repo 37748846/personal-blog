@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","部署","建站","前端","开发","SSL","安全","网络","NAS","图片","Markdown","写作","博客","教程","笔记","测试","域名","自动化"]
 author: Mac
 pubDatetime: 2023-04-02
 title: "折腾Qexo,Hexo的后台应用"
 featured: false
 draft: false
-tags: ["others"]
 description: "折腾qexo,hexo的后台应用 简略聊聊 弄了hexo博客系统后,发现没有后台,只能命令符发布文章 然后测试了很多后台程序,对于没接触过hexo的博主来说真的很麻烦, 偶然间看到qexo,支持所见即..."
 slug: 折腾qexo,hexo的后台应用
 ---
-
-
 # 折腾 qexo,hexo 的后台应用
 
 ## 目录

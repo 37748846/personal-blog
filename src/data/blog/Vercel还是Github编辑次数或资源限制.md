@@ -1,15 +1,13 @@
 ---
+tags: ["Git","部署","建站","博客","测试","自动化"]
 author: Mac
 pubDatetime: 2023-04-03
 title: "Vercel还是Github编辑次数或资源限制"
 featured: false
 draft: false
-tags: ["others"]
 description: "2023.4.3上午我一直在编辑主题设置文件_config.yml,美化我的小站和测试功能,也许我更新太频繁了?还是Github出问题了?居然有5个小时没更新网站,没有拉取Github文件,手动拉取直..."
 slug: Vercel还是Github编辑次数或资源限制
 ---
-
-
 2023.4.3 上午我一直在编辑主题设置文件_config.yml,美化我的小站和测试功能,也许我更新太频繁了?还是 Github 出问题了?居然有 5 个小时没更新网站,没有拉取 Github 文件,手动拉取直接报错,说的好像是资源有限什么的.
 
 弄得我一头雾水,想测试一下是不是 Vercel 出问题了,又想在 Netlify 重新部署一下,居然部署失败,哎呀我去.

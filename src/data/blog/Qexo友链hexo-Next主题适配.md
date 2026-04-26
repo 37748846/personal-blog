@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","前端","开发","SSL","安全","网络","NAS","图片","设计","图标","Markdown","写作","博客","建站","教程","测试","域名","自动化"]
 author: Mac
 pubDatetime: 2023-04-25
 title: "Qexo友链hexo-Next主题适配"
 featured: false
 draft: false
-tags: ["others"]
 description: "我是真的麻了 cdn的js库失效了，文件没有了，~~官方提供的友链申请适配不能用了~~。 虽然丑但是能用啊😬 ~~本来还想截图对比下，没有喽~~ 真的太多坑了，建议朋友把js和css下载到本地，失效了..."
 slug: Qexo友链hexo-Next主题适配
 ---
-
-
 # 我是真的麻了
 
 cdn 的 js 库失效了，文件没有了，都是第三方适配。~~官方提供的友链申请适配不能用了~~。

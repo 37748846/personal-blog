@@ -1,15 +1,13 @@
 ---
+tags: ["Git","部署","建站","SSL","安全","图片","Markdown","写作","域名","自动化"]
 author: Mac
 pubDatetime: 2023-05-28
 title: "Github图床目录页面"
 featured: false
 draft: false
-tags: ["others"]
 description: "一个简单的 Github 图床目录页面，实现对 Github 图床目录的浏览，预览，还有点击复制图片的 markdown 链接。 2801.webp 2802.webp preview.webp 部署..."
 slug: Github图床目录
 ---
-
-
 一个简单的 Github 图床目录页面，实现对 Github 图床目录的浏览，预览，还有点击复制图片的 markdown 链接。
 
 [图片已失效]

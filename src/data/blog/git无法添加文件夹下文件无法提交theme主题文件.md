@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","部署","建站","前端","开发","SSL","安全","博客","教程","自动化"]
 author: Mac
 pubDatetime: 2023-04-25
 title: "git 无法添加文件夹下文件"
 featured: false
 draft: false
-tags: ["others"]
 description: "制作本博客时，github无法提交theme主题文件。 google百度乱七八糟的一顿搜索😵 ，蹩脚裁缝麻了。 可能我描述了不清楚，搜索引擎不能准确给予结果 只能用submodule的快捷方式，子项目..."
 slug: git无法添加文件夹下文件无法提交theme主题文件
 ---
-
-
 # 制作本博客时，github 无法提交 theme 主题文件。
 
 google 百度乱七八糟的一顿搜索😵 ，蹩脚裁缝麻了。

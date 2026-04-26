@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","前端","开发","SSL","安全","网络","NAS","图片","Android","教程","自动化"]
 author: Mac
 pubDatetime: 2023-06-04
 title: "QtScrcpy免费的手机投屏神器"
 featured: false
 draft: false
-tags: ["others"]
 description: "QtScrcpy，它是一款免费的手机投屏神器。😊 QtScrcpy: 用电脑控制 Android 手机的神器 你是否有过这样的需求，想要在电脑上操作手机，或者在大屏幕上看手机的内容？如果你有，那么 ..."
 slug: QtScrcpy免费的手机投屏神器
 ---
-
-
 QtScrcpy，它是一款免费的手机投屏神器。😊
 
 ## 目录

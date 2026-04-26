@@ -1,15 +1,13 @@
 ---
+tags: ["Linux","服务器","SSL","安全","博客","建站","教程","域名","自动化"]
 author: Mac
 pubDatetime: 2026-04-25
 title: "域名变更通知：告别NCS.FUN，启用新域名lrbar.com"
 featured: false
 draft: false
-tags: ["others"]
 description: "由于NCS.FUN域名续费价格过高，博主决定停止使用该域名，正式启用新域名lrbar.com。本文详细说明了域名变更的原因、影响以及后续安排。"
 slug: 域名变更通知告别NCSFUN启用新域名lrbarcom
 ---
-
-
 
 # 域名变更通知：告别 NCS.FUN，启用新域名 lrbar.com
 

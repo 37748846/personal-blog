@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","前端","开发","SSL","安全","Markdown","写作","博客","建站","教程","测试","域名","自动化"]
 author: Mac
 pubDatetime: 2023-04-02
 title: "OpenSSL自建CA、自签SSL证书"
 featured: false
 draft: false
-tags: ["others"]
 description: "在网上经常看到自建CA和自签证书文档，但是发现自己生成之后，将ca证书导入客户端之后，Chrome访问网站总是会出现如下错误: NET::ERR_CERT_COMMON_NAME_INVALID 此服..."
 slug: OpenSSL自建CA、自签SSL证书
 ---
-
-
 在网上经常看到自建 CA 和自签证书文档，但是发现自己生成之后，将 ca 证书导入客户端之后，Chrome 访问网站总是会出现如下错误:
 NET::ERR\_CERT\_COMMON\_NAME\_INVALID
 此服务器无法证实它就是 domain.com - 它的安全证书没有指定主题备用名称。这可能是因为某项配置有误或某个攻击者拦截了您的连接。一直以为是 Chrome 浏览器安全强度太高导致的，因为发现 Firefox 和 IE 没有这个问题，但是后来才发现自签证书有缺陷。

@@ -1,15 +1,13 @@
 ---
+tags: ["Linux","服务器","Docker","部署","建站","前端","开发","SSL","安全","网络","NAS","图片","博客","教程","笔记","测试","域名","自动化"]
 author: Mac
 pubDatetime: 2023-06-16
 title: "使用IPv6实现轻松访问NAS,不再需要内网穿透"
 featured: false
 draft: false
-tags: ["others"]
 description: "为什么推荐 IPv6# 很多网友还在寻找内网穿透，内网穿透是没有外网地址才需要 现在几乎所有宽带运营商都分配外网 ipv6 所以才有了这篇文章 免费免费免费 不需要太多配置，稳定，简便，一劳永逸 ..."
 slug: 使用IPv6实现轻松访问NAS,不再使用IPv6实现轻松访问NAS,不再需要内网穿透需要内网穿透
 ---
-
-
 ## 目录
 
   - [为什么推荐 IPv6[#](https://xlog.app/dashboard/macsite/editor?id=local-0DGVfEWxVaEPVgIaor0oL&type=post#为什么推荐-ipv6)](#为什么推荐ipv6httpsxlogappdashboardmacsiteeditoridlocal-0dgvfewxvaepvgiaor0oltypepost为什么推荐-ipv6)

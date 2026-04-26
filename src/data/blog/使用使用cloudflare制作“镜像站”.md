@@ -1,15 +1,13 @@
 ---
+tags: ["Git","Linux","服务器","部署","建站","前端","开发","SSL","安全","网络","NAS","图片","Markdown","写作","Android","教程","笔记","测试","域名","自动化"]
 author: Mac
 pubDatetime: 2023-05-26
 title: "使用cloudflare制作“镜像站”"
 featured: false
 draft: false
-tags: ["others"]
 description: "可以用于间接访问一些打不开的网站，例如Github 使用说明 本项目使用Cloudflare这位慷慨无私的云服务提供商的免费服务 workers。 按照本教程进行配置，你可以自己搭建一个 Github..."
 slug: 使用使用cloudflare制作“镜像站”
 ---
-
-
 可以用于间接访问一些打不开的网站，例如 Github
 
 ## 目录
