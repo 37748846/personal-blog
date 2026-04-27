@@ -10,7 +10,9 @@ import IconPinterest from "@/assets/icons/IconPinterest.svg";
 import IconWechat from "@/assets/icons/IconWechat.svg";
 import IconWeibo from "@/assets/icons/IconWeibo.svg";
 import IconQQ from "@/assets/icons/IconQQ.svg";
-import IconQzone from "@/assets/icons/IconQzone.svg";
+import IconXiaohongshu from "@/assets/icons/IconXiaohongshu.svg";
+import IconDouyin from "@/assets/icons/IconDouyin.svg";
+import IconBilibili from "@/assets/icons/IconBilibili.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -67,10 +69,22 @@ export const SHARE_LINKS: Social[] = [
     icon: IconQQ,
   },
   {
-    name: "Qzone",
-    href: "https://sns.qzone.qq.com/cgi-bin/qzshare/share_qzshare?url=",
-    linkTitle: `Share this post on Qzone`,
-    icon: IconQzone,
+    name: "Xiaohongshu",
+    href: "https://www.xiaohongshu.com/discovery/item/",
+    linkTitle: `Share this post on Xiaohongshu`,
+    icon: IconXiaohongshu,
+  },
+  {
+    name: "Douyin",
+    href: "https://www.douyin.com/",
+    linkTitle: `Share this post on Douyin`,
+    icon: IconDouyin,
+  },
+  {
+    name: "Bilibili",
+    href: "https://www.bilibili.com/",
+    linkTitle: `Share this post on Bilibili`,
+    icon: IconBilibili,
   },
   // {
   //   name: "WhatsApp",
