@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","Linux","服务器","前端","开发","SSL","安全","图片","Markdown","写作","博客","建站","教程","笔记","测试","自动化"]
+author: Mac
 pubDatetime: 2026-04-24
 title: "Markdown 语法指南"
 featured: false
 draft: false
-tags: ["others"]
 description: "Astro 博客中 Markdown 的基本语法"
 slug: markdown-style-guide
 ---
-
-
 
 
 

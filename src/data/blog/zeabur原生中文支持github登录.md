@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","部署","建站","前端","开发","Python","后端","SSL","安全","图片","Markdown","写作","教程","域名","自动化"]
+author: Mac
 pubDatetime: 2023-06-08
 title: "zeabur原生中文支持github登录"
 featured: false
 draft: false
-tags: ["others"]
 description: "推荐使用 zeabur 部署 GitHub 项目 原生中文支持 网址：https://www.zeabur.com/ 中文文档：https://docs.zeabur.com/zh-CN verce..."
 slug: zeabur原生中文支持github登录
 ---
-
-
 推荐使用 zeabur 部署 GitHub 项目
 
 原生中文支持
@@ -19,9 +17,9 @@ slug: zeabur原生中文支持github登录
 * vercel 和 netlify 免费二级域名都被污染了
 * 都为英文使用相对麻烦
 * Zeabur 原生支持中文
-  ![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+  ![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ## 目录
 

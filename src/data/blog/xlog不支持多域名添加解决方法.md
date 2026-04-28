@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Linux","服务器","部署","建站","前端","开发","SSL","安全","图片","博客","教程","测试","域名","自动化"]
+author: Mac
 pubDatetime: 2023-05-03
 title: "xlog不支持多域名添加解决方法"
 featured: false
 draft: false
-tags: ["others"]
 description: "不能添加多域名只能走个弯路了 因为大陆 dns 使用 301 跳转需要备案，作为抠搜的博主肯定不会买服务器的。所以没法备案。 需要多域名指向一个网站的原因 不能直接使用 301 真的是很蛋疼的一件事，..."
 slug: xlog不支持多域名添加解决方法
 ---
-
-
 ## 目录
 
   - [不能添加多域名只能走个弯路了](#不能添加多域名只能走个弯路了)
@@ -44,14 +42,14 @@ cloudflare 使用 html 页面跳转到目标网站
 首先注册个 cloudflare.com 账号，很简单的，支持中文，就是有些慢。
 登陆后找到 “Pages”,
 
-![@0NYTCUK1R](https://lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafkreigd3ksdmjjxcdwoiwntzarqrrlzylrtuka5pgnyexluoq3eljw7je&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 点击创建项目
 
-![0557VZZR30G8%LTM@(137](https://lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafkreihfyt3igzhgdalyemhp56vchq7vdiaugcenhdiaqznjdzchxg3rya&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 点击直接上传
 
-![SLE2IMP923JBPI5](https://lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafkreid5j3xbz6pbnbjaptivrv3fi3hx2dm4bt2gvxzwg5daehtoqnly44&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 起一个项目名称，然后上传 HTML 文件，就是创建一个 index.html 的文件并且压缩成 zip 格式，记得在这个文件里面，加入这段代码：
 

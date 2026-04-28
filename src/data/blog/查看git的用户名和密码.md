@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","Linux","服务器","图片","安全","自动化"]
+author: Mac
 pubDatetime: 2023-04-07
 title: "查看git的用户名和密码"
 featured: false
 draft: false
-tags: ["others"]
 description: "查看用户名 : git config user.name 查看密码: git config user.password 查看邮箱:git config user.email 查看配置信息: g..."
 slug: 查看git的用户名和密码
 ---
-
-
 > 查看用户名 : `git config user.name`
 > 
 > 查看密码: `git config user.password`

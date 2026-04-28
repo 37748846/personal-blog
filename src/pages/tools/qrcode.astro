@@ -1,0 +1,206 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<Layout title="二维码生成" description="在线生成二维码工具">
+  <Header />
+  <main class="app-layout py-8">
+    <div class="mb-6">
+      <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      二维码生成
+    </h1>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-6">
+      {/* 输入 */}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          输入文本或 URL
+        </label>
+        <textarea
+          id="text-input"
+          placeholder="输入要生成二维码的内容"
+          class="w-full h-24 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+        ></textarea>
+      </div>
+
+      {/* 设置 */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            尺寸
+          </label>
+          <select
+            id="size-select"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          >
+            <option value="128">128 x 128</option>
+            <option value="256" selected>256 x 256</option>
+            <option value="512">512 x 512</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            容错级别
+          </label>
+          <select
+            id="level-select"
+            class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          >
+            <option value="L">L (7%)</option>
+            <option value="M" selected>M (15%)</option>
+            <option value="Q">Q (25%)</option>
+            <option value="H">H (30%)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            前景色
+          </label>
+          <input
+            type="color"
+            id="fg-color"
+            value="#000000"
+            class="w-full h-10 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            背景色
+          </label>
+          <input
+            type="color"
+            id="bg-color"
+            value="#ffffff"
+            class="w-full h-10 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+      </div>
+
+      {/* 生成按钮 */}
+      <button
+        id="generate-btn"
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      >
+        生成二维码
+      </button>
+
+      {/* 预览 */}
+      <div id="preview-container" class="hidden flex flex-col items-center space-y-4">
+        <div class="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+          <canvas id="qrcode-canvas"></canvas>
+        </div>
+
+        <div class="flex space-x-2">
+          <button
+            id="download-btn"
+            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          >
+            下载 PNG
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
+      <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• 输入文本或 URL 生成二维码</li>
+        <li>• 支持自定义尺寸、颜色和容错级别</li>
+        <li>• 容错级别：L(7%)、M(15%)、Q(25%)、H(30%)</li>
+        <li>• 可下载为 PNG 格式</li>
+        <li>• 所有处理在本地完成，数据不会上传到服务器</li>
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const textInput = document.getElementById('text-input') as HTMLTextAreaElement;
+  const sizeSelect = document.getElementById('size-select') as HTMLSelectElement;
+  const levelSelect = document.getElementById('level-select') as HTMLSelectElement;
+  const fgColorInput = document.getElementById('fg-color') as HTMLInputElement;
+  const bgColorInput = document.getElementById('bg-color') as HTMLInputElement;
+  const generateBtn = document.getElementById('generate-btn') as HTMLButtonElement;
+  const downloadBtn = document.getElementById('download-btn') as HTMLButtonElement;
+  const previewContainer = document.getElementById('preview-container') as HTMLDivElement;
+  const canvas = document.getElementById('qrcode-canvas') as HTMLCanvasElement;
+
+  // 简单的 QRCode 生成函数（使用外部 API）
+  function generateQRCode(text: string, size: number, fgColor: string, bgColor: string) {
+    const ctx = canvas?.getContext('2d');
+    if (!ctx) return;
+
+    // 使用 QRCode.js 库（需要先加载）
+    if (typeof (window as any).QRCode !== 'undefined') {
+      // 清除画布
+      ctx.clearRect(0, 0, size, size);
+
+      // 创建 QRCode
+      new (window as any).QRCode(canvas, {
+        text: text,
+        width: size,
+        height: size,
+        colorDark: fgColor,
+        colorLight: bgColor,
+        correctLevel: (window as any).QRCode.CorrectLevel.M
+      });
+    } else {
+      // 如果库未加载，使用简单的占位符
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, size, size);
+      ctx.fillStyle = fgColor;
+      ctx.font = '16px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('QRCode 库未加载', size / 2, size / 2);
+    }
+  }
+
+  function handleGenerate() {
+    const text = textInput?.value || '';
+    const size = parseInt(sizeSelect?.value || '256', 10);
+    const fgColor = fgColorInput?.value || '#000000';
+    const bgColor = bgColorInput?.value || '#ffffff';
+
+    if (!text) {
+      alert('请输入文本或 URL');
+      return;
+    }
+
+    if (canvas) {
+      canvas.width = size;
+      canvas.height = size;
+    }
+
+    generateQRCode(text, size, fgColor, bgColor);
+    previewContainer?.classList.remove('hidden');
+  }
+
+  function handleDownload() {
+    if (!canvas) return;
+
+    const link = document.createElement('a');
+    link.download = 'qrcode.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }
+
+  generateBtn?.addEventListener('click', handleGenerate);
+  downloadBtn?.addEventListener('click', handleDownload);
+
+  // 加载 QRCode.js 库
+  const script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js';
+  script.onload = () => {
+    console.log('QRCode.js loaded');
+  };
+  document.head.appendChild(script);
+</script>

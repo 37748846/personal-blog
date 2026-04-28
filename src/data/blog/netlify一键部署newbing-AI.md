@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","Linux","服务器","部署","建站","前端","开发","SSL","安全","图片","博客","教程","域名","自动化"]
+author: Mac
 pubDatetime: 2023-06-01
 title: "netlify一键部署newbing-AI"
 featured: false
 draft: false
-tags: ["others"]
 description: "使用 netlify 一键部署 newbing-AI 点击一键部署 为什么不使用 vercel，因为 vercel 免费二级域名被污染， netlify 可以直接使用免费的二级域名访问 部署完毕使..."
 slug: netlify一键部署newbing-AI
 ---
-
-
 ## 目录
 
   - [使用 netlify 一键部署 newbing-AI](#使用netlify一键部署newbing-ai)
@@ -26,23 +24,23 @@ slug: netlify一键部署newbing-AI
 为什么不使用 vercel，因为 vercel 免费二级域名被污染，
 netlify 可以直接使用免费的二级域名访问
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ## 部署完毕使用 netlify 提供的二级域名**加 web**
 
 例子[https://bing.vcanbb.top/web/](https://bing.vcanbb.top/web/)
 netlify 和 Vercel 部署不支持 Websocket ，需选择 官方聊天服务器 或 Cloudflare
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 看见上边齿轮了么？点击它选择 **服务选择**
 
 ## 使用效果：
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![图片已失效](https://via.placeholder.com/800x400?text=Image+Not+Found)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ## 本项目开源地址
 

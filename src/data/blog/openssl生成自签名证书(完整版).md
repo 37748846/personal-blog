@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","Linux","服务器","前端","开发","Python","后端","SSL","安全","教程","自动化"]
+author: Mac
 pubDatetime: 2023-04-02
 title: "openssl生成自签名证书(完整版)"
 featured: false
 draft: false
-tags: ["others"]
 description: "openssl生成自签名证书(完整版) 这里生成的证书是用来给Flask网站启用https用的 有点麻烦,要自己建一个CA,然后对自己的请求文件进行认证然后生成证书,私钥和证书,一共俩 ubuntu上..."
 slug: openssl生成自签名证书(完整版)
 ---
-
-
 # openssl 生成自签名证书(完整版)
 
 **这里生成的证书是用来给 Flask 网站启用 https 用的**

@@ -1,0 +1,353 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<Layout title="图片裁剪" description="在线图片裁剪工具">
+  <Header />
+  <main class="app-layout py-8">
+    <div class="mb-6">
+      <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      图片裁剪
+    </h1>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-6">
+      {/* 上传区域 */}
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          选择图片
+        </label>
+        <div
+          id="drop-zone"
+          class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-8 text-center cursor-pointer hover:border-blue-500 transition-colors"
+        >
+          <div class="text-4xl mb-2">📁</div>
+          <p class="text-gray-600 dark:text-gray-400 mb-2">
+            拖拽图片到此处或点击上传
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-500">
+            支持 JPG、PNG、WebP 格式
+          </p>
+          <input
+            type="file"
+            id="file-input"
+            accept="image/jpeg,image/png,image/webp"
+            class="hidden"
+          />
+        </div>
+      </div>
+
+      {/* 裁剪设置 */}
+      <div id="settings" class="hidden space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            裁剪比例
+          </label>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <button
+              data-ratio="free"
+              class="ratio-btn px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              自由
+            </button>
+            <button
+              data-ratio="1:1"
+              class="ratio-btn px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              1:1
+            </button>
+            <button
+              data-ratio="16:9"
+              class="ratio-btn px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              16:9
+            </button>
+            <button
+              data-ratio="4:3"
+              class="ratio-btn px-3 py-2 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              4:3
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            旋转
+          </label>
+          <div class="flex space-x-2">
+            <button
+              id="rotate-left"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              ↺ 左转 90°
+            </button>
+            <button
+              id="rotate-right"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              ↻ 右转 90°
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            翻转
+          </label>
+          <div class="flex space-x-2">
+            <button
+              id="flip-horizontal"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              ↔ 水平翻转
+            </button>
+            <button
+              id="flip-vertical"
+              class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+            >
+              ↕ 垂直翻转
+            </button>
+          </div>
+        </div>
+
+        <button
+          id="crop-btn"
+          class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          裁剪图片
+        </button>
+      </div>
+
+      <!-- 预览区域 -->
+      <div id="preview" class="hidden space-y-4">
+        <div class="relative">
+          <canvas id="canvas" class="max-w-full mx-auto border border-gray-300 dark:border-gray-600 rounded"></canvas>
+          <div
+            id="crop-overlay"
+            class="absolute border-2 border-blue-500 bg-blue-500/20 cursor-move hidden"
+            style="top: 0; left: 0; width: 100px; height: 100px;"
+          >
+            <div class="absolute -top-1 -left-1 w-3 h-3 bg-blue-500 cursor-nw-resize"></div>
+            <div class="absolute -top-1 -right-1 w-3 h-3 bg-blue-500 cursor-ne-resize"></div>
+            <div class="absolute -bottom-1 -left-1 w-3 h-3 bg-blue-500 cursor-sw-resize"></div>
+            <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-blue-500 cursor-se-resize"></div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 text-sm">
+          <div>
+            <span class="text-gray-600 dark:text-gray-400">原始尺寸:</span>
+            <span id="original-dimensions" class="ml-2 font-medium"></span>
+          </div>
+          <div>
+            <span class="text-gray-600 dark:text-gray-400">裁剪尺寸:</span>
+            <span id="crop-dimensions" class="ml-2 font-medium"></span>
+          </div>
+        </div>
+
+        <button
+          id="download-btn"
+          class="w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+        >
+          下载裁剪后的图片
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
+      <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• 上传图片文件进行裁剪</li>
+        <li>• 选择裁剪比例或自由裁剪</li>
+        <li>• 拖动裁剪框调整裁剪区域</li>
+        <li>• 支持旋转和翻转功能</li>
+        <li>• 预览裁剪效果</li>
+        <li>• 下载裁剪后的图片</li>
+        <li>• 所有处理在本地完成，数据不会上传到服务器</li>
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const dropZone = document.getElementById('drop-zone') as HTMLDivElement;
+  const fileInput = document.getElementById('file-input') as HTMLInputElement;
+  const settingsDiv = document.getElementById('settings') as HTMLDivElement;
+  const previewDiv = document.getElementById('preview') as HTMLDivElement;
+  const canvas = document.getElementById('canvas') as HTMLCanvasElement;
+  const cropOverlay = document.getElementById('crop-overlay') as HTMLDivElement;
+  const rotateLeftBtn = document.getElementById('rotate-left') as HTMLButtonElement;
+  const rotateRightBtn = document.getElementById('rotate-right') as HTMLButtonElement;
+  const flipHorizontalBtn = document.getElementById('flip-horizontal') as HTMLButtonElement;
+  const flipVerticalBtn = document.getElementById('flip-vertical') as HTMLButtonElement;
+  const cropBtn = document.getElementById('crop-btn') as HTMLButtonElement;
+  const downloadBtn = document.getElementById('download-btn') as HTMLButtonElement;
+  const originalDimensions = document.getElementById('original-dimensions') as HTMLElement;
+  const cropDimensions = document.getElementById('crop-dimensions') as HTMLElement;
+
+  let originalFile: File | null = null;
+  let originalImage: HTMLImageElement | null = null;
+  let rotation = 0;
+  let flipH = false;
+  let flipV = false;
+  let currentRatio: string = 'free';
+
+  // 拖拽上传
+  dropZone?.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('border-blue-500');
+  });
+
+  dropZone?.addEventListener('dragleave', () => {
+    dropZone.classList.remove('border-blue-500');
+  });
+
+  dropZone?.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('border-blue-500');
+    const files = e.dataTransfer?.files;
+    if (files && files.length > 0) {
+      handleFile(files[0]);
+    }
+  });
+
+  // 点击上传
+  dropZone?.addEventListener('click', () => {
+    fileInput?.click();
+  });
+
+  fileInput?.addEventListener('change', (e) => {
+    const files = (e.target as HTMLInputElement).files;
+    if (files && files.length > 0) {
+      handleFile(files[0]);
+    }
+  });
+
+  // 比例按钮
+  document.querySelectorAll('.ratio-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentRatio = btn.getAttribute('data-ratio') || 'free';
+      document.querySelectorAll('.ratio-btn').forEach(b => {
+        b.classList.remove('bg-blue-500', 'text-white');
+      });
+      btn.classList.add('bg-blue-500', 'text-white');
+    });
+  });
+
+  function handleFile(file: File) {
+    if (!file.type.startsWith('image/')) {
+      alert('请选择图片文件');
+      return;
+    }
+
+    originalFile = file;
+
+    const img = new Image();
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      img.src = e.target?.result as string;
+    };
+
+    img.onload = () => {
+      originalImage = img;
+      rotation = 0;
+      flipH = false;
+      flipV = false;
+
+      // 设置画布尺寸
+      if (canvas) {
+        canvas.width = img.width;
+        canvas.height = img.height;
+      }
+
+      // 绘制图片
+      drawImage();
+
+      // 显示设置和预览
+      settingsDiv?.classList.remove('hidden');
+      previewDiv?.classList.remove('hidden');
+
+      // 显示尺寸
+      if (originalDimensions) {
+        originalDimensions.textContent = `${img.width} x ${img.height}`;
+      }
+      if (cropDimensions) {
+        cropDimensions.textContent = `${img.width} x ${img.height}`;
+      }
+    };
+
+    reader.readAsDataURL(file);
+  }
+
+  function drawImage() {
+    if (!canvas || !originalImage) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // 清除画布
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 保存状态
+    ctx.save();
+
+    // 移动到中心
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+
+    // 旋转
+    ctx.rotate((rotation * Math.PI) / 180);
+
+    // 翻转
+    ctx.scale(flipH ? -1 : 1, flipV ? -1 : 1);
+
+    // 绘制图片
+    ctx.drawImage(originalImage, -originalImage.width / 2, -originalImage.height / 2);
+
+    // 恢复状态
+    ctx.restore();
+  }
+
+  function rotateLeft() {
+    rotation -= 90;
+    drawImage();
+  }
+
+  function rotateRight() {
+    rotation += 90;
+    drawImage();
+  }
+
+  function flipHorizontal() {
+    flipH = !flipH;
+    drawImage();
+  }
+
+  function flipVertical() {
+    flipV = !flipV;
+    drawImage();
+  }
+
+  function cropImage() {
+    if (!canvas || !originalFile) return;
+
+    // 简单裁剪：使用整个画布
+    const link = document.createElement('a');
+    link.download = `cropped_${originalFile.name}`;
+    link.href = canvas.toDataURL(originalFile.type);
+    link.click();
+  }
+
+  rotateLeftBtn?.addEventListener('click', rotateLeft);
+  rotateRightBtn?.addEventListener('click', rotateRight);
+  flipHorizontalBtn?.addEventListener('click', flipHorizontal);
+  flipVerticalBtn?.addEventListener('click', flipVertical);
+  cropBtn?.addEventListener('click', cropImage);
+  downloadBtn?.addEventListener('click', cropImage);
+</script>

@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","Linux","服务器","前端","开发","SSL","安全","网络","NAS","图片","Android","教程","自动化"]
+author: Mac
 pubDatetime: 2023-06-04
 title: "QtScrcpy免费的手机投屏神器"
 featured: false
 draft: false
-tags: ["others"]
 description: "QtScrcpy，它是一款免费的手机投屏神器。😊 QtScrcpy: 用电脑控制 Android 手机的神器 你是否有过这样的需求，想要在电脑上操作手机，或者在大屏幕上看手机的内容？如果你有，那么 ..."
 slug: QtScrcpy免费的手机投屏神器
 ---
-
-
 QtScrcpy，它是一款免费的手机投屏神器。😊
 
 ## 目录
@@ -38,9 +36,9 @@ QtScrcpy 有以下几个特点，让它成为了手机投屏控制的神器：
 
 下面是 QtScrcpy 的部分截图：
 
-![QtScrcpy 主界面](https://blog.lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafybeihf5y3ky6zomsubllwgif24rpwjgigb42ck7qytrnwytuglz7mvhe&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
-![QtScrcpy 按键映射](https://blog.lrbar.com/_next/image?url=https%3A%2F%2Fipfs.4everland.xyz%2Fipfs%2Fbafybeicwectz2kzd5kn77mneh6k6hv3gtldaeer6kgsgchyd32s4m6faxq&w=3840&q=75)
+![图片暂不可用](https://via.placeholder.com/800x400?text=图片暂不可用)
 
 ### QtScrcpy 的使用方法
 

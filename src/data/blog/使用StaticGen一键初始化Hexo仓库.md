@@ -1,15 +1,13 @@
 ---
-author: 爪爪
+tags: ["Git","部署","建站","前端","开发","SSL","安全","博客","教程","自动化"]
+author: Mac
 pubDatetime: 2023-04-02
 title: "使用StaticGen一键初始化Hexo仓库"
 featured: false
 draft: false
-tags: ["others"]
 description: "简要流程 使用Github登陆Netlify。 使用StaticGen一键初始化Hexo仓库。 将Hexo源码仓库Clone到本地,调整网站配置,编写文章。 本地无需Nodejs、NPM、Hexo环境..."
 slug: 使用StaticGen一键初始化Hexo仓库
 ---
-
-
 # 简要流程
 
 使用 Github 登陆 Netlify。

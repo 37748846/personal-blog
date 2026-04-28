@@ -1,0 +1,200 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+---
+
+<Layout title="JSON 格式化" description="在线 JSON 格式化和验证工具">
+  <Header />
+  <main class="app-layout py-8">
+    <div class="mb-6">
+      <a href="/tools" class="text-blue-600 hover:text-blue-800">← 返回工具列表</a>
+    </div>
+
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+      JSON 格式化
+    </h1>
+
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6 space-y-4">
+      <div class="flex items-center space-x-4">
+        <label class="text-sm font-medium text-gray-700 dark:text-gray-300">
+          缩进空格数:
+        </label>
+        <select
+          id="indent"
+          class="px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+        >
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="8">8</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          输入 JSON
+        </label>
+        <textarea
+          id="input"
+          placeholder="输入要格式化的 JSON"
+          class="w-full h-48 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+        ></textarea>
+      </div>
+
+      <div class="flex space-x-2">
+        <button
+          id="format-btn"
+          class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          格式化
+        </button>
+        <button
+          id="minify-btn"
+          class="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700"
+        >
+          压缩
+        </button>
+        <button
+          id="sample-btn"
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+        >
+          加载示例
+        </button>
+        <button
+          id="clear-btn"
+          class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+        >
+          清空
+        </button>
+      </div>
+
+      <div id="error" class="hidden bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-3">
+        <p class="text-sm text-red-800 dark:text-red-300"></p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          输出
+        </label>
+        <textarea
+          id="output"
+          readonly
+          class="w-full h-48 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-900 focus:outline-none font-mono text-sm text-gray-900 dark:text-white"
+        ></textarea>
+      </div>
+
+      <div class="flex space-x-2">
+        <button
+          id="copy-btn"
+          disabled
+          class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed"
+        >
+          复制结果
+        </button>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mt-6">
+      <h3 class="font-semibold text-gray-900 dark:text-white mb-2">使用说明</h3>
+      <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+        <li>• 格式化：将 JSON 格式化为易读的格式</li>
+        <li>• 压缩：将 JSON 压缩为一行</li>
+        <li>• 支持自定义缩进空格数</li>
+        <li>• 所有处理在本地完成，数据不会上传到服务器</li>
+      </ul>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const indentSelect = document.getElementById('indent') as HTMLSelectElement;
+  const formatBtn = document.getElementById('format-btn') as HTMLButtonElement;
+  const minifyBtn = document.getElementById('minify-btn') as HTMLButtonElement;
+  const sampleBtn = document.getElementById('sample-btn') as HTMLButtonElement;
+  const clearBtn = document.getElementById('clear-btn') as HTMLButtonElement;
+  const copyBtn = document.getElementById('copy-btn') as HTMLButtonElement;
+  const input = document.getElementById('input') as HTMLTextAreaElement;
+  const output = document.getElementById('output') as HTMLTextAreaElement;
+  const errorDiv = document.getElementById('error') as HTMLDivElement;
+  const errorP = errorDiv?.querySelector('p') as HTMLParagraphElement;
+
+  function showError(message: string) {
+    if (errorP) {
+      errorP.textContent = message;
+      errorDiv?.classList.remove('hidden');
+    }
+  }
+
+  function hideError() {
+    errorDiv?.classList.add('hidden');
+  }
+
+  function handleFormat() {
+    try {
+      const inputValue = input?.value || '';
+      const indent = Number(indentSelect?.value || 2);
+      const parsed = JSON.parse(inputValue);
+      const formatted = JSON.stringify(parsed, null, indent);
+      if (output) output.value = formatted;
+      hideError();
+      if (copyBtn) copyBtn.disabled = false;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      showError(`JSON 格式错误: ${message}`);
+      if (output) output.value = '';
+      if (copyBtn) copyBtn.disabled = true;
+    }
+  }
+
+  function handleMinify() {
+    try {
+      const inputValue = input?.value || '';
+      const parsed = JSON.parse(inputValue);
+      const minified = JSON.stringify(parsed);
+      if (output) output.value = minified;
+      hideError();
+      if (copyBtn) copyBtn.disabled = false;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      showError(`JSON 格式错误: ${message}`);
+      if (output) output.value = '';
+      if (copyBtn) copyBtn.disabled = true;
+    }
+  }
+
+  function handleLoadSample() {
+    const sample = {
+      name: "免费工具站",
+      version: "1.0.0",
+      features: ["Base64", "URL", "JSON"],
+      settings: {
+        theme: "light",
+        language: "zh-CN"
+      }
+    };
+    if (input) input.value = JSON.stringify(sample, null, 2);
+  }
+
+  function handleCopy() {
+    try {
+      navigator.clipboard.writeText(output?.value || '');
+      alert('已复制到剪贴板');
+    } catch (error) {
+      alert('复制失败');
+    }
+  }
+
+  function handleClear() {
+    if (input) input.value = '';
+    if (output) output.value = '';
+    hideError();
+    if (copyBtn) copyBtn.disabled = true;
+  }
+
+  formatBtn?.addEventListener('click', handleFormat);
+  minifyBtn?.addEventListener('click', handleMinify);
+  sampleBtn?.addEventListener('click', handleLoadSample);
+  clearBtn?.addEventListener('click', handleClear);
+  copyBtn?.addEventListener('click', handleCopy);
+</script>
