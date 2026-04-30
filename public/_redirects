@@ -1,0 +1,3 @@
+# Redirect non-www to www with 301 (permanent) for better WeChat compatibility
+/ https://www.lrbar.com/ 301
+/:path* https://www.lrbar.com/:path* 301
