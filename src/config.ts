@@ -1,7 +1,7 @@
 export const SITE = {
 	website: "https://www.lrbar.com/", // replace this with your deployed domain
 	author: "Mac",
-	profile: "https://lrbar.com/",
+	profile: "https://www.lrbar.com/",
 	desc: "Mac的博客 - 技术分享、生活记录、工具开发",
 	title: "懒人吧",
 	ogImage: "astropaper-og.jpg",
