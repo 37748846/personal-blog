@@ -1,6 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 import Card from "@/components/Card.astro";
 import getPostsByGroupCondition from "@/utils/getPostsByGroupCondition";
 import { SITE } from "@/config";
@@ -28,50 +31,53 @@ const months = [
 ];
 ---
 
-<!-- 👇 官方原版：只保留 Main 组件，删除重复的 Layout/Header/Footer 👇 -->
-<Main pageTitle="Archives" pageDesc="All the articles I've archived.">
-  {
-    Object.entries(
-      getPostsByGroupCondition(posts, post =>
-        post.data.pubDatetime.getFullYear()
+<Layout title={`Archives | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Archives" pageDesc="All the articles I've archived.">
+    {
+      Object.entries(
+        getPostsByGroupCondition(posts, post =>
+          post.data.pubDatetime.getFullYear()
+        )
       )
-    )
-      .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
-      .map(([year, yearGroup]) => (
-        <div>
-          <span class="text-2xl font-bold">{year}</span>
-          <sup class="text-sm">{yearGroup.length}</sup>
-          {Object.entries(
-            getPostsByGroupCondition(
-              yearGroup,
-              post => post.data.pubDatetime.getMonth() + 1
+        .sort(([yearA], [yearB]) => Number(yearB) - Number(yearA))
+        .map(([year, yearGroup]) => (
+          <div>
+            <span class="text-2xl font-bold">{year}</span>
+            <sup class="text-sm">{yearGroup.length}</sup>
+            {Object.entries(
+              getPostsByGroupCondition(
+                yearGroup,
+                post => post.data.pubDatetime.getMonth() + 1
+              )
             )
-          )
-            .sort(([monthA], [monthB]) => Number(monthB) - Number(monthA))
-            .map(([month, monthGroup]) => (
-              <div class="flex flex-col sm:flex-row">
-                <div class="mt-6 w-full text-lg sm:my-6 sm:w-36">
-                  <span class="font-bold">{months[Number(month) - 1]}</span>
-                  <sup class="text-xs">{monthGroup.length}</sup>
+              .sort(([monthA], [monthB]) => Number(monthB) - Number(monthA))
+              .map(([month, monthGroup]) => (
+                <div class="flex flex-col sm:flex-row">
+                  <div class="mt-6 w-full text-lg sm:my-6 sm:w-36">
+                    <span class="font-bold">{months[Number(month) - 1]}</span>
+                    <sup class="text-xs">{monthGroup.length}</sup>
+                  </div>
+                  <ul class="w-full">
+                    {monthGroup
+                      .sort(
+                        (a, b) =>
+                          Math.floor(
+                            new Date(b.data.pubDatetime).getTime() / 1000
+                          ) -
+                          Math.floor(
+                            new Date(a.data.pubDatetime).getTime() / 1000
+                          )
+                      )
+                      .map(data => (
+                        <Card {...data} />
+                      ))}
+                  </ul>
                 </div>
-                <ul class="w-full">
-                  {monthGroup
-                    .sort(
-                      (a, b) =>
-                        Math.floor(
-                          new Date(b.data.pubDatetime).getTime() / 1000
-                        ) -
-                        Math.floor(
-                          new Date(a.data.pubDatetime).getTime() / 1000
-                        )
-                    }
-                    .map(data => (
-                      <Card {...data} />
-                    ))}
-                </ul>
-              </div>
-            ))}
-        </div>
-      ))
-  }
-</Main>
+              ))}
+          </div>
+        ))
+    }
+  </Main>
+  <Footer />
+</Layout>
